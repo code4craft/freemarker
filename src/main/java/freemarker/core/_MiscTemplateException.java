@@ -1,5 +1,6 @@
 package freemarker.core;
 
+import freemarker.core.nodes.Expression;
 import freemarker.template.TemplateException;
 
 /**

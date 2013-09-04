@@ -83,7 +83,7 @@ import freemarker.cache.TemplateLoader;
 import freemarker.cache.WebappTemplateLoader;
 import freemarker.core.Configurable;
 import freemarker.core.Environment;
-import freemarker.core.ParseException;
+import freemarker.core.exception.ParseException;
 import freemarker.core._ConcurrentMapFactory;
 import freemarker.core._CoreAPI;
 import freemarker.core._DelayedJQuote;

@@ -1,5 +1,8 @@
 package freemarker.core;
 
+import freemarker.core.nodes.BuiltIn;
+import freemarker.core.nodes.TemplateElement;
+
 import java.io.PrintWriter;
 import java.util.Collections;
 import java.util.Set;

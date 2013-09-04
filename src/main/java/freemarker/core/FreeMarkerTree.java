@@ -51,10 +51,11 @@
  */
 package freemarker.core;
 
-import javax.swing.JTree;
-import javax.swing.tree.DefaultTreeModel;
-
+import freemarker.core.nodes.TemplateElement;
 import freemarker.template.Template;
+
+import javax.swing.*;
+import javax.swing.tree.DefaultTreeModel;
 
 /**
  * Allows exposure of a FreeMarker template's AST as a Swing tree.

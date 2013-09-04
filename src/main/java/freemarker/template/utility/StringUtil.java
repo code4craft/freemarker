@@ -59,8 +59,7 @@ import java.util.Map;
 import java.util.StringTokenizer;
 
 import freemarker.core.Environment;
-import freemarker.core.ParseException;
-import freemarker.template.Configuration;
+import freemarker.core.exception.ParseException;
 import freemarker.template.Template;
 import freemarker.template.Version;
 

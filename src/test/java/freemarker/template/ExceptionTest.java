@@ -10,7 +10,7 @@ import java.io.StringWriter;
 import java.util.Collections;
 
 import junit.framework.TestCase;
-import freemarker.core.ParseException;
+import freemarker.core.exception.ParseException;
 
 public class ExceptionTest extends TestCase {
     

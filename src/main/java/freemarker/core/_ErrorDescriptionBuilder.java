@@ -1,5 +1,8 @@
 package freemarker.core;
 
+import freemarker.core.nodes.Expression;
+import freemarker.core.nodes.StringLiteral;
+import freemarker.core.nodes.TemplateElement;
 import freemarker.log.Logger;
 import freemarker.template.Configuration;
 import freemarker.template.Template;

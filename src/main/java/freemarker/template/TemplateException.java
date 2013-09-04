@@ -52,19 +52,14 @@
 
 package freemarker.template;
 
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.io.PrintStream;
-import java.io.PrintWriter;
-import java.io.StringWriter;
-import java.lang.reflect.Method;
-
 import freemarker.core.Environment;
-import freemarker.core.ParseException;
-import freemarker.core.TemplateElement;
+import freemarker.core.exception.ParseException;
 import freemarker.core._CoreAPI;
 import freemarker.core._ErrorDescriptionBuilder;
+import freemarker.core.nodes.TemplateElement;
+
+import java.io.*;
+import java.lang.reflect.Method;
 
 /**
  * Runtime exception in a template (as opposed to a parsing-time exception: {@link ParseException}).

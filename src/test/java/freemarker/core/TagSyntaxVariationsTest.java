@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.StringReader;
 import java.io.StringWriter;
 
+import freemarker.core.exception.ParseException;
 import junit.framework.TestCase;
 import freemarker.template.Configuration;
 import freemarker.template.Template;

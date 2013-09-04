@@ -52,74 +52,71 @@
 
 package freemarker.core;
 
+import com.sun.xml.internal.xsom.impl.scd.SimpleCharStream;
+import freemarker.core.exception.NonNumericalException;
+import freemarker.core.exception.ParseException;
+import freemarker.core.exception.TokenMgrError;
+import freemarker.core.nodes.BuiltIn;
+import freemarker.core.nodes.Expression;
+import freemarker.template.*;
+import freemarker.template.template_model.*;
+import freemarker.template.utility.StringUtil;
+
 import java.io.StringReader;
 import java.io.UnsupportedEncodingException;
 import java.util.List;
 import java.util.StringTokenizer;
 
-import freemarker.template.SimpleNumber;
-import freemarker.template.SimpleScalar;
-import freemarker.template.SimpleSequence;
-import freemarker.template.TemplateBooleanModel;
-import freemarker.template.TemplateException;
-import freemarker.template.template_model.TemplateMethodModel;
-import freemarker.template.template_model.TemplateMethodModelEx;
-import freemarker.template.template_model.TemplateModel;
-import freemarker.template.template_model.TemplateModelException;
-import freemarker.template.template_model.TemplateScalarModel;
-import freemarker.template.Version;
-import freemarker.template.utility.StringUtil;
-
 
 /**
  * A holder for builtins that operate exclusively on (coerced) string left-hand value.
  */
-class StringBuiltins {
+public class StringBuiltins {
     
     // Can't be instantiated
     private StringBuiltins() { }
     
     // Also used by RegexpBuiltins
-    abstract static class StringBuiltIn extends BuiltIn {
-        TemplateModel _eval(Environment env)
+    public abstract static class StringBuiltIn extends BuiltIn {
+        public  TemplateModel _eval(Environment env)
         throws TemplateException
         {
             return calculateResult(target.evalAndCoerceToString(env), env);
         }
         abstract TemplateModel calculateResult(String s, Environment env) throws TemplateException;
     }
-    
-    static class capitalizeBI extends StringBuiltIn {
+
+    public static class capitalizeBI extends StringBuiltIn {
         TemplateModel calculateResult(String s, Environment env) {
             return new SimpleScalar(StringUtil.capitalize(s));
         }
     }
 
-    static class chop_linebreakBI extends StringBuiltIn {
+    public static class chop_linebreakBI extends StringBuiltIn {
         TemplateModel calculateResult(String s, Environment env) {
             return new SimpleScalar(StringUtil.chomp(s));
         }
     }
 
-    static class j_stringBI extends StringBuiltIn {
+    public static class j_stringBI extends StringBuiltIn {
         TemplateModel calculateResult(String s, Environment env) {
             return new SimpleScalar(StringUtil.javaStringEnc(s));
         }
     }
 
-    static class js_stringBI extends StringBuiltIn {
+    public static class js_stringBI extends StringBuiltIn {
         TemplateModel calculateResult(String s, Environment env) {
             return new SimpleScalar(StringUtil.javaScriptStringEnc(s));
         }
     }
 
-    static class json_stringBI extends StringBuiltIn {
+    public static class json_stringBI extends StringBuiltIn {
         TemplateModel calculateResult(String s, Environment env) {
             return new SimpleScalar(StringUtil.jsonStringEnc(s));
         }
     }
 
-    static class cap_firstBI extends StringBuiltIn {
+    public static class cap_firstBI extends StringBuiltIn {
         TemplateModel calculateResult(String s, Environment env) {
             int i = 0;
             int ln = s.length();
@@ -135,7 +132,7 @@ class StringBuiltins {
         }
     }
 
-    static class uncap_firstBI extends StringBuiltIn {
+    public  static class uncap_firstBI extends StringBuiltIn {
         TemplateModel calculateResult(String s, Environment env) {
             int i = 0;
             int ln = s.length();
@@ -151,21 +148,21 @@ class StringBuiltins {
         }
     }
 
-    static class upper_caseBI extends StringBuiltIn {
+    public static class upper_caseBI extends StringBuiltIn {
         TemplateModel calculateResult(String s, Environment env)
         {
             return new SimpleScalar(s.toUpperCase(env.getLocale()));
         }
     }
 
-    static class lower_caseBI extends StringBuiltIn {
+    public static class lower_caseBI extends StringBuiltIn {
         TemplateModel calculateResult(String s, Environment env)
         {
             return new SimpleScalar(s.toLowerCase(env.getLocale()));
         }
     }
 
-    static class word_listBI extends StringBuiltIn {
+    public static class word_listBI extends StringBuiltIn {
         TemplateModel calculateResult(String s, Environment env) {
             SimpleSequence result = new SimpleSequence();
             StringTokenizer st = new StringTokenizer(s);
@@ -176,7 +173,7 @@ class StringBuiltins {
         }
     }
 
-    static class evalBI extends StringBuiltIn {
+    public static class evalBI extends StringBuiltIn {
         TemplateModel calculateResult(String s, Environment env) throws TemplateException 
         {
             SimpleCharStream scs = new SimpleCharStream(
@@ -214,7 +211,7 @@ class StringBuiltins {
         }
     }
 
-    static class numberBI extends StringBuiltIn {
+    public static class numberBI extends StringBuiltIn {
         TemplateModel calculateResult(String s, Environment env)  throws TemplateException
         {
             try {
@@ -224,8 +221,8 @@ class StringBuiltins {
             }
         }
     }
-    
-    static class substringBI extends StringBuiltIn {
+
+    public static class substringBI extends StringBuiltIn {
     	TemplateModel calculateResult(final String s, final Environment env) throws TemplateException {
     		return new TemplateMethodModelEx() {
     			public Object exec(java.util.List args) throws TemplateModelException {
@@ -242,7 +239,7 @@ class StringBuiltins {
     	}
     }
 
-    static class lengthBI extends StringBuiltIn {
+    public static class lengthBI extends StringBuiltIn {
     
         TemplateModel calculateResult(String s, Environment env) throws TemplateException {
             return new SimpleNumber(s.length());
@@ -250,13 +247,13 @@ class StringBuiltins {
         
     }
 
-    static class trimBI extends StringBuiltIn {
+    public static class trimBI extends StringBuiltIn {
         TemplateModel calculateResult(String s, Environment env) {
             return new SimpleScalar(s.trim());
         }
     }
 
-    static class htmlBI extends StringBuiltIn implements ICIChainMember {
+    public static class htmlBI extends StringBuiltIn implements ICIChainMember {
         
         private static final int MIN_ICE = Version.intValueFor(2, 3, 20); 
         private final BIBeforeICE2d3d20 prevICEObj = new BIBeforeICE2d3d20();
@@ -280,25 +277,25 @@ class StringBuiltins {
         }
     }
 
-    static class xmlBI extends StringBuiltIn {
+    public static class xmlBI extends StringBuiltIn {
         TemplateModel calculateResult(String s, Environment env) {
             return new SimpleScalar(StringUtil.XMLEnc(s));
         }
     }
 
-    static class xhtmlBI extends StringBuiltIn {
+    public static class xhtmlBI extends StringBuiltIn {
         TemplateModel calculateResult(String s, Environment env) {
             return new SimpleScalar(StringUtil.XHTMLEnc(s));
         }
     }
 
-    static class rtfBI extends StringBuiltIn {
+    public static class rtfBI extends StringBuiltIn {
         TemplateModel calculateResult(String s, Environment env) {
             return new SimpleScalar(StringUtil.RTFEnc(s));
         }
     }
 
-    static class urlBI extends StringBuiltIn {
+    public static class urlBI extends StringBuiltIn {
         
         TemplateModel calculateResult(String s, Environment env) {
             return new urlBIResult(s, env);
@@ -356,7 +353,7 @@ class StringBuiltins {
         }
     }
 
-    static class starts_withBI extends StringBuiltIn {
+    public static class starts_withBI extends StringBuiltIn {
     
         TemplateModel calculateResult(String s, Environment env) throws TemplateException {
             return new BIMethod(s);
@@ -377,7 +374,7 @@ class StringBuiltins {
         }
     }
 
-    static class ends_withBI extends StringBuiltIn {
+    public static class ends_withBI extends StringBuiltIn {
     
         TemplateModel calculateResult(String s, Environment env) throws TemplateException {
             return new BIMethod(s);
@@ -399,7 +396,7 @@ class StringBuiltins {
     }
 
     /** This isn't used on J2SE 1.4 and later. Remove it in 2.4. */
-    static class replaceBI extends StringBuiltIn {
+    public static class replaceBI extends StringBuiltIn {
     
         TemplateModel calculateResult(String s, Environment env) throws TemplateException {
             return new BIMethod(s);
@@ -438,7 +435,7 @@ class StringBuiltins {
     }
 
     /** This isn't used on J2SE 1.4 and later. Remove it in 2.4. */
-    static class splitBI extends StringBuiltIn {
+    public static class splitBI extends StringBuiltIn {
     
         TemplateModel calculateResult(String s, Environment env) throws TemplateException {
             return new BIMethod(s);
@@ -466,7 +463,7 @@ class StringBuiltins {
         }
     }
 
-    static class padBI extends StringBuiltIn {
+    public static class padBI extends StringBuiltIn {
         
         private final boolean leftPadder;
     
@@ -515,9 +512,9 @@ class StringBuiltins {
         }
     }
 
-    static class containsBI extends BuiltIn {
-        
-        TemplateModel _eval(Environment env) throws TemplateException {
+    public static class containsBI extends BuiltIn {
+
+        public TemplateModel _eval(Environment env) throws TemplateException {
             return new BIMethod(target.evalAndCoerceToString(env,
                     "For sequences/collections (lists and such) use \"?seq_contains\" instead."));
         }
@@ -538,7 +535,7 @@ class StringBuiltins {
         }
     }
 
-    static class index_ofBI extends BuiltIn {
+    public static class index_ofBI extends BuiltIn {
         
         private final boolean findLast;
         
@@ -546,7 +543,7 @@ class StringBuiltins {
             this.findLast = findLast;
         }
 
-        TemplateModel _eval(Environment env) throws TemplateException {
+        public TemplateModel _eval(Environment env) throws TemplateException {
             return new BIMethod(target.evalAndCoerceToString(env,
                     "For sequences/collections (lists and such) use \"?seq_index_of\" instead."));
         }

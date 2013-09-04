@@ -1,5 +1,7 @@
 package freemarker.core;
 
+import freemarker.core.nodes.Expression;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -9,7 +11,7 @@ import java.util.Map;
 /**
  * Utilities that didn't fit elsewhere. 
  */
-class MiscUtil {
+public class MiscUtil {
     
     // Can't be instatiated
     private MiscUtil() { }
@@ -20,7 +22,7 @@ class MiscUtil {
     /**
      * Returns the map entries in source code order of the Expression values.
      */
-    static List/*Map.Entry*/ sortMapOfExpressions(Map/*<?, Expression>*/ map) {
+    public static List/*Map.Entry*/ sortMapOfExpressions(Map/*<?, Expression>*/ map) {
         ArrayList res = new ArrayList(map.entrySet());
         Collections.sort(res, 
                 new Comparator() {  // for sorting to source code order

@@ -28,7 +28,7 @@ public interface DebuggedEnvironment extends DebugModel
     
     /**
      * Stops the processing of the environment after it was stopped on
-     * a breakpoint. Causes a {@link freemarker.core.StopException} to be
+     * a breakpoint. Causes a {@link freemarker.core.exception.StopException} to be
      * thrown in the processing thread in the remote VM. 
      * @throws RemoteException
      */

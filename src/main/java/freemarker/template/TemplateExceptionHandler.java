@@ -58,7 +58,7 @@ import java.io.Writer;
 
 import freemarker.core.Configurable;
 import freemarker.core.Environment;
-import freemarker.core.StopException;
+import freemarker.core.exception.StopException;
 import freemarker.template.utility.StringUtil;
 
 /**

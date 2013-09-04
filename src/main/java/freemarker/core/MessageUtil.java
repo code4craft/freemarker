@@ -1,33 +1,34 @@
 package freemarker.core;
 
-import java.util.ArrayList;
-
+import freemarker.core.nodes.*;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
 import freemarker.template.template_model.TemplateModel;
 import freemarker.template.template_model.TemplateModelException;
 import freemarker.template.utility.StringUtil;
 
+import java.util.ArrayList;
+
 /**
  * Utilities for creating error messages (and other messages).
  */
-class MessageUtil {
+public class MessageUtil {
 
-    static final String[] UNKNOWN_DATE_TYPE_ERROR_TIPS = new String[] {
+    public static final String[] UNKNOWN_DATE_TYPE_ERROR_TIPS = new String[] {
             "Use ?time, ?date or ?datetime to tell FreeMarker which parts of the date is used.",
             "For programmers: Use java.sql.Date/Time/Timestamp instead of java.util.Date in the "
             + "data-model to avoid this ambiguity."
     };
-    
-    static final String[] UNKNOWN_DATE_TO_STRING_TIPS = new String[] {
+
+    public static final String[] UNKNOWN_DATE_TO_STRING_TIPS = new String[] {
             "Use ?string(format) to specify which parts to display.",
             UNKNOWN_DATE_TYPE_ERROR_TIPS[0],
             UNKNOWN_DATE_TYPE_ERROR_TIPS[1]
     };
 
-    static final String EMBEDDED_MESSAGE_BEGIN = "---begin-message---\n";
+    public static final String EMBEDDED_MESSAGE_BEGIN = "---begin-message---\n";
 
-    static final String EMBEDDED_MESSAGE_END = "\n---end-message---";
+    public static final String EMBEDDED_MESSAGE_END = "\n---end-message---";
 
     // Can't be instantiated
     private MessageUtil() { }
@@ -138,8 +139,8 @@ class MessageUtil {
             }
         }
     }
-    
-    static StringBuffer appendExpressionAsUntearable(StringBuffer sb, Expression argExp) {
+
+    public static StringBuffer appendExpressionAsUntearable(StringBuffer sb, Expression argExp) {
         boolean needParen =
                 !(argExp instanceof NumberLiteral)
                 && !(argExp instanceof StringLiteral)
@@ -157,11 +158,11 @@ class MessageUtil {
         return sb;
     }
 
-    static TemplateModelException newArgCntError(String methodName, int argCnt, int expectedCnt) {
+    public static TemplateModelException newArgCntError(String methodName, int argCnt, int expectedCnt) {
         return newArgCntError(methodName, argCnt, expectedCnt, expectedCnt);
     }
-    
-    static TemplateModelException newArgCntError(String methodName, int argCnt, int minCnt, int maxCnt) {
+
+    public static TemplateModelException newArgCntError(String methodName, int argCnt, int minCnt, int maxCnt) {
         ArrayList/*<Object>*/ desc = new ArrayList(20);
         
         desc.add(methodName);
@@ -203,41 +204,41 @@ class MessageUtil {
         return new _TemplateModelException(desc.toArray());
     }
 
-    static TemplateModelException newMethodArgMustBeStringException(String methodName, int argIdx, TemplateModel arg) {
+    public static TemplateModelException newMethodArgMustBeStringException(String methodName, int argIdx, TemplateModel arg) {
         return newMethodArgUnexpectedTypeException(methodName, argIdx, "string", arg);
     }
 
-    static TemplateModelException newMethodArgMustBeNumberException(String methodName, int argIdx, TemplateModel arg) {
+    public static TemplateModelException newMethodArgMustBeNumberException(String methodName, int argIdx, TemplateModel arg) {
         return newMethodArgUnexpectedTypeException(methodName, argIdx, "number", arg);
     }
-    
-    static TemplateModelException newMethodArgMustBeBooleanException(String methodName, int argIdx, TemplateModel arg) {
+
+    public static TemplateModelException newMethodArgMustBeBooleanException(String methodName, int argIdx, TemplateModel arg) {
         return newMethodArgUnexpectedTypeException(methodName, argIdx, "boolean", arg);
     }
-    
-    static TemplateModelException newMethodArgMustBeExtendedHashException(
+
+    public static TemplateModelException newMethodArgMustBeExtendedHashException(
             String methodName, int argIdx, TemplateModel arg) {
         return newMethodArgUnexpectedTypeException(methodName, argIdx, "extended hash", arg);
     }
-    
-    static TemplateModelException newMethodArgMustBeSequenceException(
+
+    public static TemplateModelException newMethodArgMustBeSequenceException(
             String methodName, int argIdx, TemplateModel arg) {
         return newMethodArgUnexpectedTypeException(methodName, argIdx, "sequence", arg);
     }
-    
-    static TemplateModelException newMethodArgMustBeSequenceOrCollectionException(
+
+    public static TemplateModelException newMethodArgMustBeSequenceOrCollectionException(
             String methodName, int argIdx, TemplateModel arg) {
         return newMethodArgUnexpectedTypeException(methodName, argIdx, "sequence or collection", arg);
     }
-    
-    static TemplateModelException newMethodArgUnexpectedTypeException(
+
+    public static TemplateModelException newMethodArgUnexpectedTypeException(
             String methodName, int argIdx, String expectedType, TemplateModel arg) {
         return new _TemplateModelException(new Object[] {
                 methodName, "(...) expects ", new _DelayedAOrAn(expectedType), " as argument #", new Integer(argIdx + 1),
                 ", but received ", new _DelayedAOrAn(new _DelayedFTLTypeDescription(arg)), "." });
     }
 
-    static TemplateException newInstantiatingClassNotAllowedException(String className, Environment env) {
+    public static TemplateException newInstantiatingClassNotAllowedException(String className, Environment env) {
         return new _MiscTemplateException(env, new Object[] {
                 "Instantiating ", className, " is not allowed in the template for security reasons." });
     }
@@ -245,7 +246,7 @@ class MessageUtil {
     /**
      * @return "a" or "an" or "a(n)" (or "" for empty string) for an FTL type name
      */
-    static String getAOrAn(String s) {
+    public static String getAOrAn(String s) {
         if (s == null) return null;
         if (s.length() == 0) return "";
         

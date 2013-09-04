@@ -52,6 +52,7 @@
 
 package freemarker.core;
 
+import freemarker.core.exception.ParseException;
 import freemarker.template.Template;
 
 /**
@@ -62,42 +63,42 @@ import freemarker.template.Template;
 public abstract class TemplateObject {
     
     private Template template;
-    int beginColumn, beginLine, endColumn, endLine;
+    public int beginColumn, beginLine, endColumn, endLine;
     
     /** This is needed for an ?eval hack; the expression AST nodes will be the descendants of the template, however,
      *  we can't give their position in the template, only in the dynamic string that's evaluated. That's signaled
      *  by a negative line numbers, starting from this constant as line 1. */
-    static final int RUNTIME_EVAL_LINE_DISPLACEMENT = -1000000000;  
+    static final int RUNTIME_EVAL_LINE_DISPLACEMENT = -1000000000;
 
-    final void setLocation(Template template, Token begin, Token end)
+    public final void setLocation(Template template, Token begin, Token end)
+    throws
+            ParseException
+    {
+        setLocation(template, begin.beginColumn, begin.beginLine, end.endColumn, end.endLine);
+    }
+
+    public final void setLocation(Template template, Token begin, TemplateObject end)
     throws
         ParseException
     {
         setLocation(template, begin.beginColumn, begin.beginLine, end.endColumn, end.endLine);
     }
 
-    final void setLocation(Template template, Token begin, TemplateObject end)
+    public final void setLocation(Template template, TemplateObject begin, Token end)
     throws
         ParseException
     {
         setLocation(template, begin.beginColumn, begin.beginLine, end.endColumn, end.endLine);
     }
 
-    final void setLocation(Template template, TemplateObject begin, Token end)
+    public final void setLocation(Template template, TemplateObject begin, TemplateObject end)
     throws
         ParseException
     {
         setLocation(template, begin.beginColumn, begin.beginLine, end.endColumn, end.endLine);
     }
 
-    final void setLocation(Template template, TemplateObject begin, TemplateObject end)
-    throws
-        ParseException
-    {
-        setLocation(template, begin.beginColumn, begin.beginLine, end.endColumn, end.endLine);
-    }
-
-    void setLocation(Template template, int beginColumn, int beginLine, int endColumn, int endLine)
+    public void setLocation(Template template, int beginColumn, int beginLine, int endColumn, int endLine)
     throws
         ParseException
     {
@@ -200,7 +201,7 @@ public abstract class TemplateObject {
         return template;
     }
 
-    TemplateObject copyLocationFrom(TemplateObject from)
+    public TemplateObject copyLocationFrom(TemplateObject from)
     {
         template = from.template;
         beginColumn = from.beginColumn;
@@ -214,10 +215,10 @@ public abstract class TemplateObject {
      * FTL generated from the AST of the node, which must be parseable to an AST that does the same as the original
      * source, assuming we turn off automatic white-space removal when parsing the canonical form.
      * 
-     * @see TemplateElement#getDescription()
+     * @see freemarker.core.nodes.TemplateElement#getDescription()
      * @see #getNodeTypeSymbol()
      */
-    abstract public String getCanonicalForm();
+    public abstract String getCanonicalForm();
     
     /**
      * A very sort single-line string that describes what kind of AST node this is, without describing any 
@@ -226,13 +227,13 @@ public abstract class TemplateObject {
      * that is equivalent with the original could be reconstructed from the tree view. Thus, for literal values that are
      * leaf nodes the symbols should be the canonical form of value.
      * 
-     * Note that {@link TemplateElement#getDescription()} has similar role, only it doesn't go under the element level
+     * Note that {@link freemarker.core.nodes.TemplateElement#getDescription()} has similar role, only it doesn't go under the element level
      * (i.e. down to the expression level), instead it always prints the embedded expressions itself.
      * 
      * @see #getCanonicalForm()
-     * @see TemplateElement#getDescription()
+     * @see freemarker.core.nodes.TemplateElement#getDescription()
      */
-    abstract String getNodeTypeSymbol();
+    public abstract String getNodeTypeSymbol();
     
     /**
      * Returns highest valid parameter index + 1. So one should scan indexes with {@link #getParameterValue(int)}
@@ -241,26 +242,26 @@ public abstract class TemplateObject {
      * omitted in an instance, this will still return the same value and the value of that parameter will be
      * {@code null}.
      */
-    abstract int getParameterCount();
+    public abstract int getParameterCount();
     
     /**
      * Returns the value of the parameter identified by the index. For example, the binary "+" operator will have an
-     * LHO {@link Expression} at index 0, and and RHO {@link Expression} at index 1. Or, the binary "." operator will
-     * have an LHO {@link Expression} at index 0, and an RHO {@link String}(!) at index 1. Or, the {@code #include}
-     * directive will have a path {@link Expression} at index 0, a "parse" {@link Expression} at index 1, etc.
+     * LHO {@link freemarker.core.nodes.Expression} at index 0, and and RHO {@link freemarker.core.nodes.Expression} at index 1. Or, the binary "." operator will
+     * have an LHO {@link freemarker.core.nodes.Expression} at index 0, and an RHO {@link String}(!) at index 1. Or, the {@code #include}
+     * directive will have a path {@link freemarker.core.nodes.Expression} at index 0, a "parse" {@link freemarker.core.nodes.Expression} at index 1, etc.
      * 
      * <p>The index value doesn't correspond to the source-code location in general. It's an arbitrary identifier
      * that corresponds to the role of the parameter instead. This also means that when a parameter is omitted, the
      * index of the other parameters won't shift.
      *
-     *  @return {@code null} or any kind of {@link Object}, very often an {@link Expression}. However, if there's
+     *  @return {@code null} or any kind of {@link Object}, very often an {@link freemarker.core.nodes.Expression}. However, if there's
      *      a {@link TemplateObject} stored inside the returned value, it must itself be be a {@link TemplateObject}
      *      too, otherwise the AST couldn't be (easily) fully traversed. That is, non-{@link TemplateObject} values
      *      can only be used for leafs. 
      *  
      *  @throws IndexOutOfBoundsException if {@code idx} is less than 0 or not less than {@link #getParameterCount()}. 
      */
-    abstract Object getParameterValue(int idx);
+    public abstract Object getParameterValue(int idx);
 
     /**
      *  Returns the role of the parameter at the given index, like {@link ParameterRole#LEFT_HAND_OPERAND}.

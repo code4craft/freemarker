@@ -56,7 +56,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import freemarker.core.Environment;
-import freemarker.core.Macro;
+import freemarker.core.nodes.Macro;
 import freemarker.ext.beans.BeanModel;
 import freemarker.ext.beans.BooleanModel;
 import freemarker.ext.beans.CollectionModel;

@@ -60,6 +60,8 @@ import java.util.regex.PatternSyntaxException;
 
 import freemarker.cache.MruCacheStorage;
 import freemarker.core.StringBuiltins.StringBuiltIn;
+import freemarker.core.exception.UnexpectedTypeException;
+import freemarker.core.nodes.BuiltIn;
 import freemarker.log.Logger;
 import freemarker.template.ObjectWrapper;
 import freemarker.template.SimpleScalar;

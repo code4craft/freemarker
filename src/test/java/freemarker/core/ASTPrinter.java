@@ -16,6 +16,9 @@ import java.util.Enumeration;
 import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
 
+import freemarker.core.exception.ParseException;
+import freemarker.core.nodes.Expression;
+import freemarker.core.nodes.TemplateElement;
 import freemarker.template.Configuration;
 import freemarker.template.Template;
 import freemarker.template.template_model.TemplateModel;

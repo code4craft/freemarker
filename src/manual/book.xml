@@ -7132,7 +7132,7 @@ cfg.setTemplateLoader(mtl);</programlisting>
                 </listitem>
 
                 <listitem>
-                  <para><literal>freemarker.core.ParseException</literal>
+                  <para><literal>freemarker.core.exception.ParseException</literal>
                   because the template file is syntactically incorrect
                   according the rules of the FTL language. The point is that
                   this error occurs when you obtain the

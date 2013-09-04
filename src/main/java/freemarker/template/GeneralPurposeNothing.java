@@ -65,7 +65,7 @@ import java.util.List;
  * @author <a href="mailto:jon@revusky.com">Jonathan Revusky</a>
  */
 
-final class GeneralPurposeNothing
+public final class GeneralPurposeNothing
 implements TemplateBooleanModel, TemplateScalarModel, TemplateSequenceModel, TemplateHashModelEx, TemplateMethodModelEx {
 
     private static final TemplateModel instance = new GeneralPurposeNothing();
@@ -75,7 +75,7 @@ implements TemplateBooleanModel, TemplateScalarModel, TemplateSequenceModel, Tem
     private GeneralPurposeNothing() {
     }
 
-    static TemplateModel getInstance()  {
+    public static TemplateModel getInstance()  {
         return instance;
     }
 

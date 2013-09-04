@@ -52,56 +52,24 @@
 
 package freemarker.core;
 
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.io.StringWriter;
-import java.io.Writer;
-import java.text.Collator;
-import java.text.DateFormat;
-import java.text.DecimalFormat;
-import java.text.DecimalFormatSymbols;
-import java.text.NumberFormat;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Locale;
-import java.util.Map;
-import java.util.Set;
-import java.util.StringTokenizer;
-import java.util.TimeZone;
-
+import freemarker.core.exception.StopException;
+import freemarker.core.nodes.*;
 import freemarker.ext.beans.BeansWrapper;
 import freemarker.log.Logger;
-import freemarker.template.Configuration;
-import freemarker.template.ObjectWrapper;
-import freemarker.template.SimpleHash;
-import freemarker.template.SimpleSequence;
-import freemarker.template.Template;
-import freemarker.template.TemplateCollectionModel;
-import freemarker.template.TemplateDateModel;
-import freemarker.template.TemplateDirectiveBody;
-import freemarker.template.TemplateDirectiveModel;
-import freemarker.template.TemplateException;
-import freemarker.template.TemplateExceptionHandler;
-import freemarker.template.template_model.TemplateHashModel;
-import freemarker.template.template_model.TemplateHashModelEx;
-import freemarker.template.template_model.TemplateModel;
-import freemarker.template.template_model.TemplateModelException;
-import freemarker.template.template_model.TemplateModelIterator;
-import freemarker.template.template_model.TemplateNodeModel;
-import freemarker.template.template_model.TemplateScalarModel;
-import freemarker.template.template_model.TemplateSequenceModel;
-import freemarker.template.template_model.TemplateTransformModel;
-import freemarker.template.TransformControl;
+import freemarker.template.*;
+import freemarker.template.template_model.*;
 import freemarker.template.utility.DateUtil;
 import freemarker.template.utility.DateUtil.DateToISO8601CalendarFactory;
 import freemarker.template.utility.NullWriter;
 import freemarker.template.utility.StringUtil;
 import freemarker.template.utility.UndeclaredThrowableException;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.io.StringWriter;
+import java.io.Writer;
+import java.text.*;
+import java.util.*;
 
 /**
  * Object that represents the runtime environment during template processing.
@@ -257,7 +225,7 @@ public final class Environment extends Configurable {
     /**
      * "Visit" the template element.
      */
-    void visit(TemplateElement element)
+    public void visit(TemplateElement element)
     throws TemplateException, IOException
     {
         pushElement(element);
@@ -279,7 +247,7 @@ public final class Environment extends Configurable {
      * {@code [#if foo]...[@failsHere/]...[/#if]}, where the #if call shouldn't be in the stack trace. (Simply marking
      * #if as hidden in stack traces would be wrong, because we still want to show #if when its test expression fails.)    
      */
-    void visitByHiddingParent(TemplateElement element)
+    public void visitByHiddingParent(TemplateElement element)
     throws TemplateException, IOException {
         TemplateElement parent = replaceTopElement(element);
         try {
@@ -355,7 +323,7 @@ public final class Environment extends Configurable {
      * through
      * @param args optional arguments fed to the transform
      */
-    void visitAndTransform(TemplateElement element,
+    public void visitAndTransform(TemplateElement element,
                TemplateTransformModel transform,
                Map args)
     throws TemplateException, IOException
@@ -417,7 +385,7 @@ public final class Environment extends Configurable {
     /**
      * Visit a block using buffering/recovery
      */
-     void visitAttemptRecover(TemplateElement attemptBlock, RecoveryBlock recoveryBlock) 
+    public void visitAttemptRecover(TemplateElement attemptBlock, RecoveryBlock recoveryBlock)
      throws TemplateException, IOException {
          Writer prevOut = this.out;
          StringWriter sw = new StringWriter();
@@ -450,8 +418,8 @@ public final class Environment extends Configurable {
              out.write(sw.toString());
          }
      }
-     
-     String getCurrentRecoveredErrorMessage() throws TemplateException {
+
+    public  String getCurrentRecoveredErrorMessage() throws TemplateException {
          if(recoveredErrorStack.isEmpty()) {
              throw new _MiscTemplateException(this, ".error is not available outside of a #recover block");
          }
@@ -470,7 +438,7 @@ public final class Environment extends Configurable {
      }
 
 
-    void visit(BodyInstruction.Context bctxt) throws TemplateException, IOException {
+    public void visit(BodyInstruction.Context bctxt) throws TemplateException, IOException {
         Macro.Context invokingMacroContext = getCurrentMacroContext();
         ArrayList prevLocalContextStack = localContextStack;
         TemplateElement body = invokingMacroContext.body;
@@ -501,7 +469,7 @@ public final class Environment extends Configurable {
     /**
      * "visit" an IteratorBlock
      */
-    void visitIteratorBlock(IteratorBlock.Context ictxt)
+    public void visitIteratorBlock(IteratorBlock.Context ictxt)
     throws TemplateException, IOException
     {
         pushLocalContext(ictxt);
@@ -615,8 +583,8 @@ public final class Environment extends Configurable {
     /**
      * "visit" a macro.
      */
-    
-    void visit(Macro macro, 
+
+    public void visit(Macro macro,
                Map namedArgs, 
                List positionalArgs, 
                List bodyParameterNames,
@@ -707,8 +675,8 @@ public final class Environment extends Configurable {
             popElement();
         }
     }
-    
-    void visitMacroDef(Macro macro) {
+
+    public void visitMacroDef(Macro macro) {
         macroToNamespaceLookup.put(macro, currentNamespace);
         currentNamespace.put(macro.getName(), macro);
     }
@@ -717,7 +685,7 @@ public final class Environment extends Configurable {
         return (Namespace) macroToNamespaceLookup.get(macro);
     }
     
-    void recurse(TemplateNodeModel node, TemplateSequenceModel namespaces)
+    public void recurse(TemplateNodeModel node, TemplateSequenceModel namespaces)
     throws TemplateException, IOException 
     {
         if (node == null) {
@@ -737,7 +705,7 @@ public final class Environment extends Configurable {
         }
     }
 
-    Macro.Context getCurrentMacroContext() {
+    public Macro.Context getCurrentMacroContext() {
         return currentMacroContext;
     }
     
@@ -900,7 +868,7 @@ public final class Environment extends Configurable {
         return out;
     }
 
-    String formatNumber(Number number) {
+    public String formatNumber(Number number) {
         if(numberFormat == null) {
             numberFormat = getNumberFormatObject(getNumberFormat());
         }
@@ -1136,7 +1104,7 @@ public final class Environment extends Configurable {
      * with {@link DateUtil#dateToISO8601String(Date, boolean, boolean, boolean,
      * int, TimeZone, DateToISO8601CalendarFactory)}.
      */
-    DateToISO8601CalendarFactory getISOBuiltInCalendar() {
+    public DateToISO8601CalendarFactory getISOBuiltInCalendar() {
         if (isoBuiltInCalendarFactory == null) {
             isoBuiltInCalendarFactory = new DateUtil.TrivialDateToISO8601CalendarFactory();
         }
@@ -1157,7 +1125,7 @@ public final class Environment extends Configurable {
         return cNumberFormat;
     }
 
-    TemplateTransformModel getTransform(Expression exp) throws TemplateException {
+    public TemplateTransformModel getTransform(Expression exp) throws TemplateException {
         TemplateTransformModel ttm = null;
         TemplateModel tm = exp.eval(this);
         if (tm instanceof TemplateTransformModel) {
@@ -1414,8 +1382,8 @@ public final class Environment extends Configurable {
     private void popLocalContext() {
         localContextStack.remove(localContextStack.size() - 1);
     }
-    
-    ArrayList getLocalContextStack() {
+
+    public ArrayList getLocalContextStack() {
         return localContextStack;
     }
 
@@ -1789,8 +1757,8 @@ public final class Environment extends Configurable {
         }
         return (Namespace) loadedLibs.get(templateName);
     }
-    
-    String renderElementToString(TemplateElement te) throws IOException, TemplateException {
+
+    public String renderElementToString(TemplateElement te) throws IOException, TemplateException {
         Writer prevOut = out;
         try {
             StringWriter sw = new StringWriter();
@@ -1903,8 +1871,8 @@ public final class Environment extends Configurable {
     public class Namespace extends SimpleHash {
         
         private Template template;
-        
-        Namespace() {
+
+        public Namespace() {
             this.template = Environment.this.getTemplate();
         }
         
@@ -1939,16 +1907,16 @@ public final class Environment extends Configurable {
     /**
      * See {@link #setFastInvalidReferenceExceptions(boolean)}. 
      */
-    boolean getFastInvalidReferenceExceptions() {
+    public boolean getFastInvalidReferenceExceptions() {
         return fastInvalidReferenceExceptions;
     }
     
     /**
-     * Sets if for invalid references {@link InvalidReferenceException#FAST_INSTANCE} should be thrown, or a new
-     * {@link InvalidReferenceException}. The "fast" instance is used if we know that the error will be handled
+     * Sets if for invalid references {@link freemarker.core.exception.InvalidReferenceException#FAST_INSTANCE} should be thrown, or a new
+     * {@link freemarker.core.exception.InvalidReferenceException}. The "fast" instance is used if we know that the error will be handled
      * so that its message will not be logged or shown anywhere.
      */
-    boolean setFastInvalidReferenceExceptions(boolean b) {
+    public boolean setFastInvalidReferenceExceptions(boolean b) {
         boolean res = fastInvalidReferenceExceptions;
         fastInvalidReferenceExceptions = b;
         return res;

@@ -68,9 +68,9 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-import freemarker.core.DebugBreak;
+import freemarker.core.nodes.DebugBreak;
 import freemarker.core.Environment;
-import freemarker.core.TemplateElement;
+import freemarker.core.nodes.TemplateElement;
 import freemarker.debug.Breakpoint;
 import freemarker.debug.DebuggerListener;
 import freemarker.debug.EnvironmentSuspendedEvent;

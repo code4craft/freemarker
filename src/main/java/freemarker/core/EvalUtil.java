@@ -52,31 +52,30 @@
 
 package freemarker.core;
 
-import java.util.Date;
-
+import freemarker.core.exception.InvalidReferenceException;
+import freemarker.core.exception.NonStringException;
+import freemarker.core.nodes.Expression;
 import freemarker.ext.beans.BeanModel;
 import freemarker.ext.beans._BeansAPI;
 import freemarker.template.TemplateBooleanModel;
 import freemarker.template.TemplateCollectionModel;
 import freemarker.template.TemplateDateModel;
 import freemarker.template.TemplateException;
-import freemarker.template.template_model.TemplateModel;
-import freemarker.template.template_model.TemplateModelException;
-import freemarker.template.template_model.TemplateNumberModel;
-import freemarker.template.template_model.TemplateScalarModel;
-import freemarker.template.template_model.TemplateSequenceModel;
+import freemarker.template.template_model.*;
+
+import java.util.Date;
 
 /**
  * Internally used static utilities for evaluation expressions.
  */
-class EvalUtil
+public class EvalUtil
 {
-    static final int CMP_OP_EQUALS = 1;
-    static final int CMP_OP_NOT_EQUALS = 2;
-    static final int CMP_OP_LESS_THAN = 3;
-    static final int CMP_OP_GREATER_THAN = 4;
-    static final int CMP_OP_LESS_THAN_EQUALS = 5;
-    static final int CMP_OP_GREATER_THAN_EQUALS = 6;
+    public static final int CMP_OP_EQUALS = 1;
+    public static final int CMP_OP_NOT_EQUALS = 2;
+    public static final int CMP_OP_LESS_THAN = 3;
+    public static final int CMP_OP_GREATER_THAN = 4;
+    public static final int CMP_OP_LESS_THAN_EQUALS = 5;
+    public static final int CMP_OP_GREATER_THAN_EQUALS = 6;
     // If you add a new operator here, update the "compare" and "cmpOpToString" methods!
 
     // Prevents instantination.
@@ -86,7 +85,7 @@ class EvalUtil
      * @param expr {@code null} is allowed, but may results in less helpful error messages
      * @param env {@code null} is allowed, but may results in lower performance in classic-compatible mode
      */
-    static String modelToString(TemplateScalarModel model, Expression expr, Environment env)
+    public static String modelToString(TemplateScalarModel model, Expression expr, Environment env)
     throws TemplateModelException {
         String value = model.getAsString();
         if(value == null) {
@@ -103,7 +102,7 @@ class EvalUtil
     /**
      * @param expr {@code null} is allowed, but may results in less helpful error messages
      */
-    static Number modelToNumber(TemplateNumberModel model, Expression expr)
+    public static Number modelToNumber(TemplateNumberModel model, Expression expr)
         throws TemplateModelException
     {
         Number value = model.getAsNumber();
@@ -114,7 +113,7 @@ class EvalUtil
     /**
      * @param expr {@code null} is allowed, but may results in less helpful error messages
      */
-    static Date modelToDate(TemplateDateModel model, Expression expr)
+    public static Date modelToDate(TemplateDateModel model, Expression expr)
         throws TemplateModelException, TemplateException
     {
         Date value = model.getAsDate();
@@ -137,7 +136,7 @@ class EvalUtil
      * @param rightExp not {@code null}
      * @param env {@code null} is tolerated, but should be avoided
      */
-    static boolean compare(
+    public static boolean compare(
             Expression leftExp,
             int operator, String  operatorString,
             Expression rightExp,
@@ -366,7 +365,7 @@ class EvalUtil
         }
     }
 
-    static String coerceModelToString(TemplateModel tm, Expression exp, String seqHint, Environment env) throws TemplateException {
+    public static String coerceModelToString(TemplateModel tm, Expression exp, String seqHint, Environment env) throws TemplateException {
         if (tm instanceof TemplateNumberModel) {
             return env.formatNumber(modelToNumber((TemplateNumberModel) tm, exp));
         } else if (tm instanceof TemplateDateModel) {

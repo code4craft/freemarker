@@ -70,6 +70,7 @@ import java.util.Properties;
 import java.util.Set;
 import java.util.TimeZone;
 
+import freemarker.core.exception.ParseException;
 import freemarker.ext.beans.BeansWrapper;
 import freemarker.template.Configuration;
 import freemarker.template.ObjectWrapper;
