@@ -1,7 +1,7 @@
 package freemarker.ext.beans;
 
-import freemarker.template.TemplateHashModel;
-import freemarker.template.TemplateModelException;
+import freemarker.template.template_model.TemplateHashModel;
+import freemarker.template.template_model.TemplateModelException;
 
 public class PrallelObjectIntrospectionTest extends AbstractParallelIntrospectionTest {
 

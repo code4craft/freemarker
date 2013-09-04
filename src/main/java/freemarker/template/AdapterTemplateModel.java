@@ -1,5 +1,7 @@
 package freemarker.template;
 
+import freemarker.template.template_model.TemplateModel;
+
 /**
  * A {@link TemplateModel} that can be unwrapped and then it considers a provided desired (hint) class. This is
  * useful when multiple languages has to communicate with each other through FreeMarker. For example, if we have a

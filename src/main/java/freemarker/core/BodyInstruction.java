@@ -58,8 +58,8 @@ import java.util.Collections;
 import java.util.List;
 
 import freemarker.template.TemplateException;
-import freemarker.template.TemplateModel;
-import freemarker.template.TemplateModelException;
+import freemarker.template.template_model.TemplateModel;
+import freemarker.template.template_model.TemplateModelException;
 
 /**
  * An instruction that processes the nested block within a macro instruction.

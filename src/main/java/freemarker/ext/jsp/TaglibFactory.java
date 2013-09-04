@@ -82,9 +82,9 @@ import freemarker.core.Environment;
 import freemarker.ext.servlet.FreemarkerServlet;
 import freemarker.ext.servlet.HttpRequestHashModel;
 import freemarker.log.Logger;
-import freemarker.template.TemplateHashModel;
-import freemarker.template.TemplateModel;
-import freemarker.template.TemplateModelException;
+import freemarker.template.template_model.TemplateHashModel;
+import freemarker.template.template_model.TemplateModel;
+import freemarker.template.template_model.TemplateModelException;
 import freemarker.template.utility.ClassUtil;
 import freemarker.template.utility.StringUtil;
 
@@ -141,7 +141,7 @@ public class TaglibFactory implements TemplateHashModel {
      * should do the same.
      * @return a hash model representing the JSP taglib. Each element of this
      * hash model represents a single custom tag from the library, implemented
-     * as a {@link freemarker.template.TemplateTransformModel}.
+     * as a {@link freemarker.template.template_model.TemplateTransformModel}.
      */
     public TemplateModel get(String uri) throws TemplateModelException {
         synchronized (taglibs) {

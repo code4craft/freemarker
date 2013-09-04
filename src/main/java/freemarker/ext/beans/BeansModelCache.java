@@ -7,7 +7,7 @@ import java.util.Set;
 import freemarker.core._ConcurrentMapFactory;
 import freemarker.ext.util.ModelCache;
 import freemarker.ext.util.ModelFactory;
-import freemarker.template.TemplateModel;
+import freemarker.template.template_model.TemplateModel;
 
 public class BeansModelCache extends ModelCache
 {

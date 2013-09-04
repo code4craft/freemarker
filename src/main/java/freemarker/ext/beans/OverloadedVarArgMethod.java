@@ -59,8 +59,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-import freemarker.template.TemplateModel;
-import freemarker.template.TemplateModelException;
+import freemarker.template.template_model.TemplateModel;
+import freemarker.template.template_model.TemplateModelException;
 
 /**
  * @author Attila Szegedi

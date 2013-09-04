@@ -81,6 +81,9 @@ import freemarker.core.TemplateElement;
 import freemarker.core.TextBlock;
 import freemarker.core.TokenMgrError;
 import freemarker.debug.impl.DebuggerService;
+import freemarker.template.template_model.TemplateHashModel;
+import freemarker.template.template_model.TemplateModel;
+import freemarker.template.template_model.TemplateNodeModel;
 
 /**
  * <p>Stores an already parsed template, ready to be processed (rendered) for unlimited times, possibly from
@@ -344,7 +347,7 @@ public class Template extends Configurable {
     *
     * @param dataModel the holder of the variables visible from all templates; see {@link #process(Object, Writer)} for
     *     more details.
-    * @param wrapper The {@link ObjectWrapper} to use to wrap objects into {@link TemplateModel}
+    * @param wrapper The {@link ObjectWrapper} to use to wrap objects into {@link freemarker.template.template_model.TemplateModel}
     *     instances. Normally you left it {@code null}, in which case {@link Configurable#getObjectWrapper()} will be
     *     used.
     * @param out The {@link Writer} where the output of the template will go; see {@link #process(Object, Writer)} for

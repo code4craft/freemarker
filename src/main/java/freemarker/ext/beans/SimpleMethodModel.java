@@ -58,17 +58,17 @@ import java.lang.reflect.Modifier;
 import java.util.List;
 
 import freemarker.template.SimpleNumber;
-import freemarker.template.TemplateMethodModelEx;
-import freemarker.template.TemplateModel;
-import freemarker.template.TemplateModelException;
-import freemarker.template.TemplateSequenceModel;
+import freemarker.template.template_model.TemplateMethodModelEx;
+import freemarker.template.template_model.TemplateModel;
+import freemarker.template.template_model.TemplateModelException;
+import freemarker.template.template_model.TemplateSequenceModel;
 import freemarker.template.utility.ClassUtil;
 import freemarker.template.utility.Collections12;
 import freemarker.template.utility.StringUtil;
 
 /**
  * A class that will wrap a reflected method call into a
- * {@link freemarker.template.TemplateMethodModel} interface. 
+ * {@link freemarker.template.template_model.TemplateMethodModel} interface.
  * It is used by {@link BeanModel} to wrap reflected method calls
  * for non-overloaded methods.
  * @author Attila Szegedi, szegedia at users dot sourceforge dot net

@@ -63,11 +63,11 @@ import freemarker.core.Environment;
 import freemarker.template.ObjectWrapper;
 import freemarker.template.SimpleScalar;
 import freemarker.template.SimpleSequence;
-import freemarker.template.TemplateHashModel;
-import freemarker.template.TemplateModel;
-import freemarker.template.TemplateModelException;
-import freemarker.template.TemplateScalarModel;
-import freemarker.template.TemplateSequenceModel;
+import freemarker.template.template_model.TemplateHashModel;
+import freemarker.template.template_model.TemplateModel;
+import freemarker.template.template_model.TemplateModelException;
+import freemarker.template.template_model.TemplateScalarModel;
+import freemarker.template.template_model.TemplateSequenceModel;
 import freemarker.template.utility.StringUtil;
 
 class NodeListModel extends SimpleSequence implements TemplateHashModel {

@@ -59,8 +59,8 @@ import java.util.ListIterator;
 import freemarker.template.SimpleSequence;
 import freemarker.template.TemplateCollectionModel;
 import freemarker.template.TemplateException;
-import freemarker.template.TemplateHashModelEx;
-import freemarker.template.TemplateModel;
+import freemarker.template.template_model.TemplateHashModelEx;
+import freemarker.template.template_model.TemplateModel;
 
 final class HashLiteral extends Expression {
 

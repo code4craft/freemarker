@@ -53,7 +53,7 @@
 package freemarker.ext.util;
 
 import freemarker.template.ObjectWrapper;
-import freemarker.template.TemplateModel;
+import freemarker.template.template_model.TemplateModel;
 
 /**
  * Interface used to create various wrapper models in the {@link ModelCache}.

@@ -58,6 +58,8 @@ import java.util.ResourceBundle;
 
 import freemarker.ext.beans.BeansWrapper;
 import freemarker.ext.util.WrapperTemplateModel;
+import freemarker.template.template_model.TemplateModel;
+import freemarker.template.template_model.TemplateModelException;
 
 /**
  * Maps Java objects to the type-system of FreeMarker Template Language (see the {@link TemplateModel}
@@ -66,7 +68,7 @@ import freemarker.ext.util.WrapperTemplateModel;
  * <p>For example, with a {@link BeansWrapper} both the items of {@link Map} and the JavaBean properties (the getters)
  * of an object are accessible in template uniformly with the {@code myObject.foo} syntax, where "foo" is the map key or
  * the property name. This is because both kind of object is wrapped by {@link BeansWrapper} into a
- * {@link TemplateHashModel} implementation that will call {@link Map#get(Object)} or the getter method, transparently
+ * {@link freemarker.template.template_model.TemplateHashModel} implementation that will call {@link Map#get(Object)} or the getter method, transparently
  * to the template language.
  * 
  * @see Configuration#setObjectWrapper(ObjectWrapper)
@@ -100,13 +102,13 @@ public interface ObjectWrapper {
     ObjectWrapper SIMPLE_WRAPPER = SimpleObjectWrapper.instance;
     
     /**
-     * Makes a {@link TemplateModel} out of a non-{@link TemplateModel} object, usually by "wrapping" it into a
-     * {@link TemplateModel} implementation that delegates to the original object.
+     * Makes a {@link freemarker.template.template_model.TemplateModel} out of a non-{@link freemarker.template.template_model.TemplateModel} object, usually by "wrapping" it into a
+     * {@link freemarker.template.template_model.TemplateModel} implementation that delegates to the original object.
      * 
-     * @param obj The object to wrap into a {@link TemplateModel}. If the it already implements {@link TemplateModel},
+     * @param obj The object to wrap into a {@link freemarker.template.template_model.TemplateModel}. If the it already implements {@link freemarker.template.template_model.TemplateModel},
      *      it should just return the object as is.
      * 
-     * @return a {@link TemplateModel} wrapper of the object passed in. To support un-wrapping, you may consider the
+     * @return a {@link freemarker.template.template_model.TemplateModel} wrapper of the object passed in. To support un-wrapping, you may consider the
      *     return value to implement {@link WrapperTemplateModel} and {@link AdapterTemplateModel}.
      */
     TemplateModel wrap(Object obj) throws TemplateModelException;

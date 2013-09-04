@@ -24,9 +24,9 @@ import freemarker.template.SimpleCollection;
 import freemarker.template.SimpleScalar;
 import freemarker.template.Template;
 import freemarker.template.TemplateCollectionModel;
-import freemarker.template.TemplateHashModelEx;
-import freemarker.template.TemplateModel;
-import freemarker.template.TemplateModelException;
+import freemarker.template.template_model.TemplateHashModelEx;
+import freemarker.template.template_model.TemplateModel;
+import freemarker.template.template_model.TemplateModelException;
 import freemarker.template.utility.UndeclaredThrowableException;
 
 /**

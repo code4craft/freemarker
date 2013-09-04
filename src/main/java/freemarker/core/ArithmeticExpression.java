@@ -54,7 +54,7 @@ package freemarker.core;
 
 import freemarker.template.SimpleNumber;
 import freemarker.template.TemplateException;
-import freemarker.template.TemplateModel;
+import freemarker.template.template_model.TemplateModel;
 
 /**
  * An operator for arithmetic operations. Note that the + operator

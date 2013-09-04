@@ -56,9 +56,9 @@ import java.util.Enumeration;
 import java.util.NoSuchElementException;
 
 import freemarker.template.TemplateCollectionModel;
-import freemarker.template.TemplateModel;
-import freemarker.template.TemplateModelException;
-import freemarker.template.TemplateModelIterator;
+import freemarker.template.template_model.TemplateModel;
+import freemarker.template.template_model.TemplateModelException;
+import freemarker.template.template_model.TemplateModelIterator;
 
 /**
  * <p>A class that adds {@link TemplateModelIterator} functionality to the

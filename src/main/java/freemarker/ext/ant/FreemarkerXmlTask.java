@@ -80,8 +80,8 @@ import freemarker.template.Configuration;
 import freemarker.template.SimpleHash;
 import freemarker.template.SimpleScalar;
 import freemarker.template.Template;
-import freemarker.template.TemplateModel;
-import freemarker.template.TemplateNodeModel;
+import freemarker.template.template_model.TemplateModel;
+import freemarker.template.template_model.TemplateNodeModel;
 import freemarker.template.utility.ClassUtil;
 import freemarker.template.utility.SecurityUtilities;
 

@@ -52,6 +52,8 @@
 
 package freemarker.template;
 
+import freemarker.template.template_model.TemplateNumberModel;
+
 import java.io.Serializable;
 
 

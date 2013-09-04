@@ -50,35 +50,37 @@
  * http://www.visigoths.org/
  */
 
-package freemarker.template;
+package freemarker.template.template_model;
+
+import freemarker.template.GeneralPurposeNothing;
+import freemarker.template.utility.ClassUtil;
 
 /**
- * "extended hash" template language data type; extends {@link TemplateHashModel} by allowing
- * iterating through its keys and values.
+ * The common super-interface of the interfaces that stand for the FreeMarker Template Language data types.
+ * The template language only deals with {@link TemplateModel}-s, not with plain objects. This is why the data-model
+ * (aka. the "template context" in other languages) is (automatically) mapped to a tree of {@link TemplateModel}-s.
  * 
- * <p>In templates they are used like hashes, but these will also work (among others):
- * {@code myExtHash?size}, {@code myExtHash?keys}, {@code myExtHash?values}.
+ * <p>Mapping the plain Java objects to {@link TemplateModel}-s (or the other way around sometimes) is the
+ * responsibility of the {@link freemarker.template.ObjectWrapper} (can be set via {@link freemarker.template.Configuration#setObjectWrapper(freemarker.template.ObjectWrapper)}).
+ * But not all {@link TemplateModel}-s are for wrapping a plain object. For example, a value created within a template
+ * is not made to wrap an earlier existing object; it's a value that has always existed in the template language's
+ * domain. Users can also write {@link TemplateModel} implementations and put them directly into the data-model for
+ * full control over how that object is seen from the template. Certain {@link TemplateModel} interfaces may doesn't
+ * even have equivalent in Java. For example the directive type ({@link freemarker.template.TemplateDirectiveModel}) is like that.
  * 
- * @author <a href="mailto:jon@revusky.com">Jonathan Revusky</a>
- * @see SimpleHash
+ * <p>Because {@link TemplateModel} "subclasses" are all interfaces, a value in the template language can have multiple
+ * types. However, to prevent ambiguous situations, it's not recommended to make values that implement more than one of
+ * these types: string, number, boolean, date. The intended applications are like string+hash, string+method,
+ * hash+sequence, etc.
+ * 
+ * @see ClassUtil#getFTLTypeDescription(TemplateModel)
  */
-public interface TemplateHashModelEx extends TemplateHashModel {
-
+public interface TemplateModel {
+    
     /**
-     * @return the number of key/value mappings in the hash.
+     * A general-purpose object to represent nothing. It acts as
+     * an empty string, false, empty sequence, empty hash, and
+     * null-returning method model.
      */
-    int size() throws TemplateModelException;
-
-    /**
-     * @return a collection containing the keys in the hash. Every element of 
-     *      the returned collection must implement the {@link TemplateScalarModel}
-     *      (as the keys of hashes are always strings).
-     */
-    TemplateCollectionModel keys() throws TemplateModelException;
-
-    /**
-     * @return a collection containing the values in the hash. The elements of the
-     * returned collection can be any kind of {@link TemplateModel}-s.
-     */
-    TemplateCollectionModel values() throws TemplateModelException;
+    TemplateModel NOTHING = GeneralPurposeNothing.getInstance();
 }

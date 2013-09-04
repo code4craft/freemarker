@@ -58,6 +58,10 @@ import java.util.Collection;
 import java.util.List;
 
 import freemarker.ext.beans.BeansWrapper;
+import freemarker.template.template_model.TemplateModel;
+import freemarker.template.template_model.TemplateModelException;
+import freemarker.template.template_model.TemplateModelIterator;
+import freemarker.template.template_model.TemplateSequenceModel;
 
 /**
  * <p>A convenient implementation of a list. This

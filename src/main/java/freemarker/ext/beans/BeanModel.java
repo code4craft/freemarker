@@ -73,15 +73,15 @@ import freemarker.template.ObjectWrapper;
 import freemarker.template.SimpleScalar;
 import freemarker.template.SimpleSequence;
 import freemarker.template.TemplateCollectionModel;
-import freemarker.template.TemplateHashModelEx;
-import freemarker.template.TemplateModel;
-import freemarker.template.TemplateModelException;
-import freemarker.template.TemplateModelIterator;
-import freemarker.template.TemplateScalarModel;
+import freemarker.template.template_model.TemplateHashModelEx;
+import freemarker.template.template_model.TemplateModel;
+import freemarker.template.template_model.TemplateModelException;
+import freemarker.template.template_model.TemplateModelIterator;
+import freemarker.template.template_model.TemplateScalarModel;
 import freemarker.template.utility.StringUtil;
 
 /**
- * A class that will wrap an arbitrary object into {@link freemarker.template.TemplateHashModel}
+ * A class that will wrap an arbitrary object into {@link freemarker.template.template_model.TemplateHashModel}
  * interface allowing calls to arbitrary property getters and invocation of
  * accessible methods on the object from a template using the
  * <tt>object.foo</tt> to access properties and <tt>object.bar(arg1, arg2)</tt> to
@@ -141,7 +141,7 @@ implements
     /**
      * Uses Beans introspection to locate a property or method with name
      * matching the key name. If a method or property is found, it's wrapped
-     * into {@link freemarker.template.TemplateMethodModelEx} (for a method or
+     * into {@link freemarker.template.template_model.TemplateMethodModelEx} (for a method or
      * indexed property), or evaluated on-the-fly and the return value wrapped
      * into appropriate model (for a simple property) Models for various
      * properties and methods are cached on a per-class basis, so the costly

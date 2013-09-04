@@ -58,10 +58,10 @@ import java.util.Map;
 
 import freemarker.core.Environment;
 import freemarker.template.SimpleScalar;
-import freemarker.template.TemplateModel;
-import freemarker.template.TemplateModelException;
-import freemarker.template.TemplateScalarModel;
-import freemarker.template.TemplateTransformModel;
+import freemarker.template.template_model.TemplateModel;
+import freemarker.template.template_model.TemplateModelException;
+import freemarker.template.template_model.TemplateScalarModel;
+import freemarker.template.template_model.TemplateTransformModel;
 
 /**
  * A transform that captures the output of a block of FTL code and stores that in a variable.

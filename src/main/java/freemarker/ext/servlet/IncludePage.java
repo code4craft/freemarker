@@ -24,8 +24,8 @@ import freemarker.template.TemplateBooleanModel;
 import freemarker.template.TemplateDirectiveBody;
 import freemarker.template.TemplateDirectiveModel;
 import freemarker.template.TemplateException;
-import freemarker.template.TemplateModel;
-import freemarker.template.TemplateScalarModel;
+import freemarker.template.template_model.TemplateModel;
+import freemarker.template.template_model.TemplateScalarModel;
 import freemarker.template.utility.Collections12;
 import freemarker.template.utility.DeepUnwrap;
 

@@ -52,8 +52,8 @@
  
 package freemarker.ext.dom;
 
-import freemarker.template.TemplateModel;
-import freemarker.template.TemplateModelException;
+import freemarker.template.template_model.TemplateModel;
+import freemarker.template.template_model.TemplateModelException;
 
 public interface XPathSupport {
     TemplateModel executeQuery(Object context, String xpathQuery) throws TemplateModelException;

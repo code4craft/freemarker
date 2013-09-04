@@ -58,11 +58,11 @@ import java.util.Map;
 
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
-import freemarker.template.TemplateModel;
-import freemarker.template.TemplateModelException;
-import freemarker.template.TemplateScalarModel;
-import freemarker.template.TemplateSequenceModel;
-import freemarker.template.TemplateTransformModel;
+import freemarker.template.template_model.TemplateModel;
+import freemarker.template.template_model.TemplateModelException;
+import freemarker.template.template_model.TemplateScalarModel;
+import freemarker.template.template_model.TemplateSequenceModel;
+import freemarker.template.template_model.TemplateTransformModel;
 
 
 /**

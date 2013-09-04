@@ -57,10 +57,10 @@ import java.util.List;
 import freemarker.template.SimpleScalar;
 import freemarker.template.SimpleSequence;
 import freemarker.template.TemplateException;
-import freemarker.template.TemplateMethodModel;
-import freemarker.template.TemplateModel;
-import freemarker.template.TemplateModelException;
-import freemarker.template.TemplateNodeModel;
+import freemarker.template.template_model.TemplateMethodModel;
+import freemarker.template.template_model.TemplateModel;
+import freemarker.template.template_model.TemplateModelException;
+import freemarker.template.template_model.TemplateNodeModel;
 import freemarker.template.utility.StringUtil;
 
 /**

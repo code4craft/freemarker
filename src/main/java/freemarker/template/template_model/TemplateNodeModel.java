@@ -50,36 +50,63 @@
  * http://www.visigoths.org/
  */
 
-package freemarker.template;
-
-import freemarker.template.utility.ClassUtil;
+package freemarker.template.template_model;
 
 /**
- * The common super-interface of the interfaces that stand for the FreeMarker Template Language data types.
- * The template language only deals with {@link TemplateModel}-s, not with plain objects. This is why the data-model
- * (aka. the "template context" in other languages) is (automatically) mapped to a tree of {@link TemplateModel}-s.
+ * "node" template language data type: an object that is a node in a tree.
+ * A tree of nodes can be recursively <em>visited</em> using the &lt;#visit...&gt; and &lt;#recurse...&gt;
+ * directives. This API is largely based on the W3C Document Object Model
+ * (DOM) API. However, it's meant to be generally useful for describing
+ * any tree of objects that you wish to navigate using a recursive visitor
+ * design pattern (or simply through being able to get the parent
+ * and child nodes).
  * 
- * <p>Mapping the plain Java objects to {@link TemplateModel}-s (or the other way around sometimes) is the
- * responsibility of the {@link ObjectWrapper} (can be set via {@link Configuration#setObjectWrapper(ObjectWrapper)}).
- * But not all {@link TemplateModel}-s are for wrapping a plain object. For example, a value created within a template
- * is not made to wrap an earlier existing object; it's a value that has always existed in the template language's
- * domain. Users can also write {@link TemplateModel} implementations and put them directly into the data-model for
- * full control over how that object is seen from the template. Certain {@link TemplateModel} interfaces may doesn't
- * even have equivalent in Java. For example the directive type ({@link TemplateDirectiveModel}) is like that.
- * 
- * <p>Because {@link TemplateModel} "subclasses" are all interfaces, a value in the template language can have multiple
- * types. However, to prevent ambiguous situations, it's not recommended to make values that implement more than one of
- * these types: string, number, boolean, date. The intended applications are like string+hash, string+method,
- * hash+sequence, etc.
- * 
- * @see ClassUtil#getFTLTypeDescription(TemplateModel)
+ * <p>See the <a href="http://freemarker.org/docs/xgui.html" target="_blank">XML
+ * Processing Guide</a> for a concrete application.
+ *
+ * @since FreeMarker 2.3
+ * @author <a href="mailto:jon@revusky.com">Jonathan Revusky</a>
  */
-public interface TemplateModel {
+public interface TemplateNodeModel extends TemplateModel {
     
     /**
-     * A general-purpose object to represent nothing. It acts as
-     * an empty string, false, empty sequence, empty hash, and
-     * null-returning method model.
+     * @return the parent of this node or null, in which case
+     * this node is the root of the tree.
      */
-    TemplateModel NOTHING = GeneralPurposeNothing.getInstance();
+    TemplateNodeModel getParentNode() throws TemplateModelException;
+    
+    /**
+     * @return a sequence containing this node's children.
+     * If the returned value is null or empty, this is essentially 
+     * a leaf node.
+     */
+    TemplateSequenceModel getChildNodes() throws TemplateModelException;
+
+    /**
+     * @return a String that is used to determine the processing
+     * routine to use. In the XML implementation, if the node 
+     * is an element, it returns the element's tag name.  If it
+     * is an attribute, it returns the attribute's name. It 
+     * returns "@text" for text nodes, "@pi" for processing instructions,
+     * and so on.
+     */    
+    String getNodeName() throws TemplateModelException;
+    
+    /**
+     * @return a String describing the <em>type</em> of node this is.
+     * In the W3C DOM, this should be "element", "text", "attribute", etc.
+     * A TemplateNodeModel implementation that models other kinds of
+     * trees could return whatever it appropriate for that application. It
+     * can be null, if you don't want to use node-types.
+     */
+    String getNodeType() throws TemplateModelException;
+    
+    
+    /**
+     * @return the XML namespace URI with which this node is 
+     * associated. If this TemplateNodeModel implementation is 
+     * not XML-related, it will almost certainly be null. Even 
+     * for XML nodes, this will often be null.
+     */
+    String getNodeNamespace() throws TemplateModelException;
 }

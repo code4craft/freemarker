@@ -53,9 +53,9 @@
 package freemarker.core;
 
 import freemarker.template.SimpleScalar;
-import freemarker.template.TemplateModel;
-import freemarker.template.TemplateScalarModel;
-import freemarker.template.TemplateSequenceModel;
+import freemarker.template.template_model.TemplateModel;
+import freemarker.template.template_model.TemplateScalarModel;
+import freemarker.template.template_model.TemplateSequenceModel;
 
 /**
  * Sequence variable implementation that wraps a String[] with relatively low

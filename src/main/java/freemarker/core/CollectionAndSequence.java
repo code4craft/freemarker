@@ -56,10 +56,10 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 import freemarker.template.TemplateCollectionModel;
-import freemarker.template.TemplateModel;
-import freemarker.template.TemplateModelException;
-import freemarker.template.TemplateModelIterator;
-import freemarker.template.TemplateSequenceModel;
+import freemarker.template.template_model.TemplateModel;
+import freemarker.template.template_model.TemplateModelException;
+import freemarker.template.template_model.TemplateModelIterator;
+import freemarker.template.template_model.TemplateSequenceModel;
 
 /**
  * Add sequence capabilities to an existing collection, or

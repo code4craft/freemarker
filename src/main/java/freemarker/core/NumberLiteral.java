@@ -53,8 +53,8 @@
 package freemarker.core;
 
 import freemarker.template.SimpleNumber;
-import freemarker.template.TemplateModel;
-import freemarker.template.TemplateNumberModel;
+import freemarker.template.template_model.TemplateModel;
+import freemarker.template.template_model.TemplateNumberModel;
 
 /**
  * A simple implementation of the <tt>TemplateNumberModel</tt>

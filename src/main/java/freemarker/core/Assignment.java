@@ -53,8 +53,8 @@
 package freemarker.core;
 
 import freemarker.template.TemplateException;
-import freemarker.template.TemplateModel;
-import freemarker.template.TemplateScalarModel;
+import freemarker.template.template_model.TemplateModel;
+import freemarker.template.template_model.TemplateScalarModel;
 
 /**
  * An instruction that makes a single assignment, like [#local x=1].

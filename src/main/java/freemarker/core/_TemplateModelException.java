@@ -1,7 +1,7 @@
 package freemarker.core;
 
-import freemarker.template.TemplateModel;
-import freemarker.template.TemplateModelException;
+import freemarker.template.template_model.TemplateModel;
+import freemarker.template.template_model.TemplateModelException;
 import freemarker.template.utility.ClassUtil;
 
 public class _TemplateModelException extends TemplateModelException {

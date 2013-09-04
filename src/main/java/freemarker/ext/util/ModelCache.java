@@ -56,8 +56,8 @@ import java.lang.ref.ReferenceQueue;
 import java.lang.ref.SoftReference;
 import java.util.Map;
 
-import freemarker.template.TemplateModel;
-import freemarker.template.TemplateModelAdapter;
+import freemarker.template.template_model.TemplateModel;
+import freemarker.template.template_model.TemplateModelAdapter;
 
 /**
  * Internally used by various wrapper implementations to implement model

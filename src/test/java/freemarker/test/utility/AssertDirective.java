@@ -8,7 +8,7 @@ import freemarker.template.TemplateBooleanModel;
 import freemarker.template.TemplateDirectiveBody;
 import freemarker.template.TemplateDirectiveModel;
 import freemarker.template.TemplateException;
-import freemarker.template.TemplateModel;
+import freemarker.template.template_model.TemplateModel;
 import freemarker.template.utility.ClassUtil;
 
 public class AssertDirective implements TemplateDirectiveModel {

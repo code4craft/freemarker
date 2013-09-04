@@ -88,6 +88,7 @@ import freemarker.core._ConcurrentMapFactory;
 import freemarker.core._CoreAPI;
 import freemarker.core._DelayedJQuote;
 import freemarker.core._MiscTemplateException;
+import freemarker.template.template_model.*;
 import freemarker.template.utility.CaptureOutput;
 import freemarker.template.utility.ClassUtil;
 import freemarker.template.utility.HtmlEscape;
@@ -863,7 +864,7 @@ public class Configuration extends Configurable implements Cloneable {
      * with those from the map.
      *
      * @see #setSharedVariable(String,Object)
-     * @see #setSharedVariable(String,TemplateModel)
+     * @see #setSharedVariable(String, freemarker.template.template_model.TemplateModel)
      */
     public void setAllSharedVariables(TemplateHashModelEx hash) throws TemplateModelException {
         TemplateModelIterator keys = hash.keys().iterator();

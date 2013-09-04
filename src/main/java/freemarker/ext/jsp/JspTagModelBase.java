@@ -13,8 +13,8 @@ import java.util.Map;
 
 import freemarker.ext.beans.BeansWrapper;
 import freemarker.template.ObjectWrapper;
-import freemarker.template.TemplateModel;
-import freemarker.template.TemplateModelException;
+import freemarker.template.template_model.TemplateModel;
+import freemarker.template.template_model.TemplateModelException;
 import freemarker.template.utility.StringUtil;
 
 class JspTagModelBase

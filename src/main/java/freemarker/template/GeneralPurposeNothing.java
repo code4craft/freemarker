@@ -52,6 +52,8 @@
 
 package freemarker.template;
 
+import freemarker.template.template_model.*;
+
 import java.util.ArrayList;
 import java.util.List;
 

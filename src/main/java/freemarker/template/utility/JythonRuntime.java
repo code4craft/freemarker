@@ -60,7 +60,7 @@ import org.python.core.PyObject;
 import org.python.util.PythonInterpreter;
 
 import freemarker.core.Environment;
-import freemarker.template.TemplateTransformModel;
+import freemarker.template.template_model.TemplateTransformModel;
 
 /**
  * A crude first pass at an embeddable Jython interpreter

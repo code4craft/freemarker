@@ -60,14 +60,14 @@ import freemarker.template.SimpleScalar;
 import freemarker.template.SimpleSequence;
 import freemarker.template.TemplateCollectionModel;
 import freemarker.template.TemplateException;
-import freemarker.template.TemplateHashModel;
-import freemarker.template.TemplateHashModelEx;
-import freemarker.template.TemplateModel;
-import freemarker.template.TemplateModelException;
-import freemarker.template.TemplateModelIterator;
-import freemarker.template.TemplateNumberModel;
-import freemarker.template.TemplateScalarModel;
-import freemarker.template.TemplateSequenceModel;
+import freemarker.template.template_model.TemplateHashModel;
+import freemarker.template.template_model.TemplateHashModelEx;
+import freemarker.template.template_model.TemplateModel;
+import freemarker.template.template_model.TemplateModelException;
+import freemarker.template.template_model.TemplateModelIterator;
+import freemarker.template.template_model.TemplateNumberModel;
+import freemarker.template.template_model.TemplateScalarModel;
+import freemarker.template.template_model.TemplateSequenceModel;
 
 /**
  * An operator for the + operator. Note that this is treated

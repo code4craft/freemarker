@@ -1,6 +1,6 @@
 package freemarker.ext.beans;
 
-import freemarker.template.TemplateModelException;
+import freemarker.template.template_model.TemplateModelException;
 
 /**
  * An exception thrown when there is an attempt to access

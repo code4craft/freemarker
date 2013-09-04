@@ -68,7 +68,7 @@ import org.jaxen.Context;
 import org.jaxen.NamespaceContext;
 import org.jaxen.dom4j.Dom4jXPath;
 
-import freemarker.template.TemplateModelException;
+import freemarker.template.template_model.TemplateModelException;
 
 /**
  * Don't use this class; it's only public to work around Google App Engine Java

@@ -52,8 +52,8 @@
 
 package freemarker.ext.beans;
 
-import freemarker.template.TemplateModel;
-import freemarker.template.TemplateModelException;
+import freemarker.template.template_model.TemplateModel;
+import freemarker.template.template_model.TemplateModelException;
 
 /**
  * Utility class for instantiating {@link StaticModel} instances from

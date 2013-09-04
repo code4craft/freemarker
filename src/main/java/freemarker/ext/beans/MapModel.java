@@ -58,9 +58,9 @@ import java.util.Set;
 
 import freemarker.ext.util.ModelFactory;
 import freemarker.template.ObjectWrapper;
-import freemarker.template.TemplateMethodModelEx;
-import freemarker.template.TemplateModel;
-import freemarker.template.TemplateModelException;
+import freemarker.template.template_model.TemplateMethodModelEx;
+import freemarker.template.template_model.TemplateModel;
+import freemarker.template.template_model.TemplateModelException;
 
 /**
  * <p>A special case of {@link BeanModel} that adds implementation

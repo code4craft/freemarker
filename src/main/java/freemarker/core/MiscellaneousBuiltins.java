@@ -16,16 +16,16 @@ import freemarker.template.TemplateCollectionModel;
 import freemarker.template.TemplateDateModel;
 import freemarker.template.TemplateDirectiveModel;
 import freemarker.template.TemplateException;
-import freemarker.template.TemplateHashModel;
-import freemarker.template.TemplateHashModelEx;
-import freemarker.template.TemplateMethodModel;
-import freemarker.template.TemplateModel;
-import freemarker.template.TemplateModelException;
-import freemarker.template.TemplateNodeModel;
-import freemarker.template.TemplateNumberModel;
-import freemarker.template.TemplateScalarModel;
-import freemarker.template.TemplateSequenceModel;
-import freemarker.template.TemplateTransformModel;
+import freemarker.template.template_model.TemplateHashModel;
+import freemarker.template.template_model.TemplateHashModelEx;
+import freemarker.template.template_model.TemplateMethodModel;
+import freemarker.template.template_model.TemplateModel;
+import freemarker.template.template_model.TemplateModelException;
+import freemarker.template.template_model.TemplateNodeModel;
+import freemarker.template.template_model.TemplateNumberModel;
+import freemarker.template.template_model.TemplateScalarModel;
+import freemarker.template.template_model.TemplateSequenceModel;
+import freemarker.template.template_model.TemplateTransformModel;
 
 /**
  * A holder for builtins that didn't fit into any other category.

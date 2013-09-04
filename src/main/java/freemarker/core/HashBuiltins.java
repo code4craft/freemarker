@@ -2,10 +2,10 @@ package freemarker.core;
 
 import freemarker.template.TemplateCollectionModel;
 import freemarker.template.TemplateException;
-import freemarker.template.TemplateHashModelEx;
-import freemarker.template.TemplateModel;
-import freemarker.template.TemplateModelException;
-import freemarker.template.TemplateSequenceModel;
+import freemarker.template.template_model.TemplateHashModelEx;
+import freemarker.template.template_model.TemplateModel;
+import freemarker.template.template_model.TemplateModelException;
+import freemarker.template.template_model.TemplateSequenceModel;
 
 /**
  * A holder for builtins that operate exclusively on hash left-hand value.

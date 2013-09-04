@@ -1,5 +1,7 @@
 package freemarker.template;
 
+import freemarker.template.template_model.TemplateModelException;
+
 import java.util.Locale;
 import java.util.MissingResourceException;
 import java.util.ResourceBundle;

@@ -5404,7 +5404,7 @@ public class Test {
         Java classes (<literal>Map</literal>, <literal>String</literal>,
         etc.). Internally, the variables available in the template are java
         objects that implement the
-        <literal>freemarker.template.TemplateModel</literal> interface. But
+        <literal>freemarker.template.template_model.TemplateModel</literal> interface. But
         you could use standard java collections as variables in your
         data-model, because these were replaced with the appropriate
         <literal>TemplateModel</literal> instances behind the scenes. This
@@ -5428,7 +5428,7 @@ public class Test {
         implementations.</para>
 
         <para>There is roughly one
-        <literal>freemarker.template.TemplateModel</literal> descendant
+        <literal>freemarker.template.template_model.TemplateModel</literal> descendant
         interface corresponding to each basic type of variable
         (<literal>TemplateHashModel</literal> for hashes,
         <literal>TemplateSequenceModel</literal> sequences,
@@ -19492,7 +19492,7 @@ or
 
             <para>If you read the programmer's guide, then you know that
             technically, the data-model is a tree of
-            <literal>freemarker.template.TemplateModel</literal> objects. The
+            <literal>freemarker.template.template_model.TemplateModel</literal> objects. The
             building of the data-model usually (but not necessary) happens by
             automatically wrapping (enclosing) plain Java objects into
             <literal>TemplateModel</literal> objects. The object that does
@@ -19957,7 +19957,7 @@ TemplateModel x = env.getVariable("x");  // get variable x</programlisting>
           <answer>
             <para>It's not possible (yet), but something very similar is
             possible if you write a class that implements
-            <literal>freemarker.template.TemplateMethodModelEx</literal> or
+            <literal>freemarker.template.template_model.TemplateMethodModelEx</literal> or
             <literal>freemarker.template.TemplateDirectiveModel</literal>
             respectively, and then where you were write <literal>&lt;#function
             my
@@ -21197,7 +21197,7 @@ TemplateModel x = env.getVariable("x");  // get variable x</programlisting>
               <literal>?seq_last_index_of</literal> now works on collections
               (<literal>freemarker.template.TemplateCollectionModel</literal>-s)
               too, not only on sequences
-              (<literal>freemarker.template.TemplateSequenceModel</literal>-s).</para>
+              (<literal>freemarker.template.template_model.TemplateSequenceModel</literal>-s).</para>
             </listitem>
 
             <listitem>
@@ -23200,7 +23200,7 @@ TemplateModel x = env.getVariable("x");  // get variable x</programlisting>
             </listitem>
 
             <listitem>
-              <para><literal>freemarker.template.TemplateMethodModel.exec</literal>
+              <para><literal>freemarker.template.template_model.TemplateMethodModel.exec</literal>
               now returns <literal>Object</literal> instead of
               <literal>TemplateModel</literal>.</para>
             </listitem>
@@ -23247,7 +23247,7 @@ TemplateModel x = env.getVariable("x");  // get variable x</programlisting>
               <para>The <literal>?new</literal> built-in, as it was
               implemented, was a security hole. Now, it only allows you to
               instantiate a java object that implements the
-              <literal>freemarker.template.TemplateModel</literal> interface.
+              <literal>freemarker.template.template_model.TemplateModel</literal> interface.
               If you want the functionality of the <literal>?new</literal>
               built-in as it existed in prior versions, make available an
               instance of the
@@ -23472,7 +23472,7 @@ TemplateModel x = env.getVariable("x");  // get variable x</programlisting>
               <para>The <literal>?new</literal> built-in, as it was
               implemented, was a security hole. Now, it only allows you to
               instantiate a java object that implements the
-              <literal>freemarker.template.TemplateModel</literal> interface.
+              <literal>freemarker.template.template_model.TemplateModel</literal> interface.
               <phrase role="forProgrammers">If you want the functionality of
               the <literal>?new</literal> built-in as it existed in prior
               versions, make available an instance of the
@@ -23539,7 +23539,7 @@ TemplateModel x = env.getVariable("x");  // get variable x</programlisting>
             </listitem>
 
             <listitem>
-              <para><literal>freemarker.template.TemplateMethodModel.exec</literal>
+              <para><literal>freemarker.template.template_model.TemplateMethodModel.exec</literal>
               now returns <literal>Object</literal> instead of
               <literal>TemplateModel</literal>.</para>
             </listitem>
@@ -23992,7 +23992,7 @@ TemplateModel x = env.getVariable("x");  // get variable x</programlisting>
 
             <itemizedlist>
               <listitem>
-                <para><literal>freemarker.template.TemplateMethodModel.exec</literal>
+                <para><literal>freemarker.template.template_model.TemplateMethodModel.exec</literal>
                 now returns <literal>Object</literal> instead of
                 <literal>TemplateModel</literal>.</para>
               </listitem>
@@ -24563,7 +24563,7 @@ TemplateModel x = env.getVariable("x");  // get variable x</programlisting>
                 <para>The <literal>?new</literal> built-in, as it was
                 implemented, was a security hole. Now, it only allows you to
                 instantiate a java object that implements the
-                <literal>freemarker.template.TemplateModel</literal>
+                <literal>freemarker.template.template_model.TemplateModel</literal>
                 interface. If you want the functionality of the
                 <literal>?new</literal> built-in as it existed in prior
                 versions, make available an instance of the new

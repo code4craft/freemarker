@@ -61,10 +61,10 @@ import java.util.ListIterator;
 
 import freemarker.template.SimpleSequence;
 import freemarker.template.TemplateException;
-import freemarker.template.TemplateMethodModel;
-import freemarker.template.TemplateMethodModelEx;
-import freemarker.template.TemplateModel;
-import freemarker.template.TemplateSequenceModel;
+import freemarker.template.template_model.TemplateMethodModel;
+import freemarker.template.template_model.TemplateMethodModelEx;
+import freemarker.template.template_model.TemplateModel;
+import freemarker.template.template_model.TemplateSequenceModel;
 import freemarker.template.utility.Collections12;
 
 final class ListLiteral extends Expression {

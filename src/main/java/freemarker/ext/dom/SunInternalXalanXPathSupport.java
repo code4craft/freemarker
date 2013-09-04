@@ -55,6 +55,8 @@ package freemarker.ext.dom;
 import freemarker.template.*;
 import freemarker.core.Environment;
 
+import freemarker.template.template_model.TemplateModel;
+import freemarker.template.template_model.TemplateModelException;
 import org.w3c.dom.*;
 import org.w3c.dom.traversal.NodeIterator;
 import com.sun.org.apache.xpath.internal.*;

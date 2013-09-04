@@ -50,24 +50,31 @@
  * http://www.visigoths.org/
  */
 
-package freemarker.template;
-
-import freemarker.core.ArithmeticEngine;
+package freemarker.template.template_model;
 
 /**
- * "number" template language data type; an object that stores a number. There's only one numerical
- * type as far as the template language is concerned, but it can store its value using whatever Java number type.
- * Making operations between numbers (and so the coercion rules) is up to the {@link ArithmeticEngine}. 
- *
- * @author <a href="mailto:jon@revusky.com">Jonathan Revusky</a>
+ * "sequence" template language data type; an object that contains other objects accessible through
+ * an integer 0-based index.
+ * 
+ * <p>Used in templates like: {@code mySeq[index]}, {@code <#list mySeq as i>...</#list>}, {@code mySeq?size}, etc. 
+ * 
+ * @author Attila Szegedi, szegedia at users dot sourceforge dot net
  */
-public interface TemplateNumberModel extends TemplateModel {
+public interface TemplateSequenceModel extends TemplateModel {
 
     /**
-     * Returns the numeric value. The return value must not be null.
-     *
-     * @return the {@link Number} instance associated with this number model.
+     * Retrieves the i-th template model in this sequence.
+     * 
+     * @return the item at the specified index, or <code>null</code> if
+     * the index is out of bounds. Note that a <code>null</code> value is
+     * interpreted by FreeMarker as "variable does not exist", and accessing
+     * a missing variables is usually considered as an error in the FreeMarker
+     * Template Language, so the usage of a bad index will not remain hidden.
      */
-    public Number getAsNumber() throws TemplateModelException;
-    
+    TemplateModel get(int index) throws TemplateModelException;
+
+    /**
+     * @return the number of items in the list.
+     */
+    int size() throws TemplateModelException;
 }

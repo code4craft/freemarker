@@ -52,6 +52,9 @@
 
 package freemarker.template;
 
+import freemarker.template.template_model.TemplateModel;
+import freemarker.template.template_model.TemplateModelException;
+
 /**
  * "boolean" template language data type; same as in Java; either {@code true} or {@code false}.
  */

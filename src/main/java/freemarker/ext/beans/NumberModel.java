@@ -54,8 +54,8 @@ package freemarker.ext.beans;
 
 import freemarker.ext.util.ModelFactory;
 import freemarker.template.ObjectWrapper;
-import freemarker.template.TemplateModel;
-import freemarker.template.TemplateNumberModel;
+import freemarker.template.template_model.TemplateModel;
+import freemarker.template.template_model.TemplateNumberModel;
 
 /**
  * Wraps arbitrary subclass of {@link java.lang.Number} into a reflective model.

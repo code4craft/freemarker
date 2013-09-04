@@ -58,10 +58,10 @@ import java.util.List;
 import freemarker.ext.util.ModelFactory;
 import freemarker.template.ObjectWrapper;
 import freemarker.template.TemplateCollectionModel;
-import freemarker.template.TemplateModel;
-import freemarker.template.TemplateModelException;
-import freemarker.template.TemplateModelIterator;
-import freemarker.template.TemplateSequenceModel;
+import freemarker.template.template_model.TemplateModel;
+import freemarker.template.template_model.TemplateModelException;
+import freemarker.template.template_model.TemplateModelIterator;
+import freemarker.template.template_model.TemplateSequenceModel;
 
 /**
  * <p>A special case of {@link BeanModel} that can wrap Java collections

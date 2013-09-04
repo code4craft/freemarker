@@ -62,9 +62,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import freemarker.template.TemplateException;
-import freemarker.template.TemplateMethodModel;
-import freemarker.template.TemplateMethodModelEx;
-import freemarker.template.TemplateModel;
+import freemarker.template.template_model.TemplateMethodModel;
+import freemarker.template.template_model.TemplateMethodModelEx;
+import freemarker.template.template_model.TemplateModel;
 import freemarker.template.utility.NullWriter;
 
 

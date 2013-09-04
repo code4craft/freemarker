@@ -4,9 +4,9 @@ import java.util.List;
 
 import freemarker.template.TemplateBooleanModel;
 import freemarker.template.TemplateException;
-import freemarker.template.TemplateMethodModelEx;
-import freemarker.template.TemplateModel;
-import freemarker.template.TemplateModelException;
+import freemarker.template.template_model.TemplateMethodModelEx;
+import freemarker.template.template_model.TemplateModel;
+import freemarker.template.template_model.TemplateModelException;
 
 /**
  * A holder for builtins that deal with null left-hand values.

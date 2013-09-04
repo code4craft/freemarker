@@ -52,8 +52,8 @@
 
 package freemarker.test.templatesuite.models;
 
-import freemarker.template.TemplateModelException;
-import freemarker.template.TemplateScalarModel;
+import freemarker.template.template_model.TemplateModelException;
+import freemarker.template.template_model.TemplateScalarModel;
 
 /**
  * A template that always throws an exception whenever we call getAsString()

@@ -53,8 +53,8 @@
 package freemarker.core;
 
 import freemarker.template.TemplateException;
-import freemarker.template.TemplateHashModel;
-import freemarker.template.TemplateModel;
+import freemarker.template.template_model.TemplateHashModel;
+import freemarker.template.template_model.TemplateModel;
 
 /**
  * The dot operator. Used to reference items inside a

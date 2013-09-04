@@ -64,11 +64,11 @@ import freemarker.ext.util.WrapperTemplateModel;
 import freemarker.template.AdapterTemplateModel;
 import freemarker.template.ObjectWrapper;
 import freemarker.template.TemplateBooleanModel;
-import freemarker.template.TemplateHashModel;
-import freemarker.template.TemplateMethodModelEx;
-import freemarker.template.TemplateModel;
-import freemarker.template.TemplateModelException;
-import freemarker.template.TemplateScalarModel;
+import freemarker.template.template_model.TemplateHashModel;
+import freemarker.template.template_model.TemplateMethodModelEx;
+import freemarker.template.template_model.TemplateModel;
+import freemarker.template.template_model.TemplateModelException;
+import freemarker.template.template_model.TemplateScalarModel;
 
 /**
  * Generic model for arbitrary Jython objects.
@@ -187,7 +187,7 @@ TemplateMethodModelEx, AdapterTemplateModel, WrapperTemplateModel
     }
 
     /**
-     * @see freemarker.template.TemplateMethodModel#exec(List)
+     * @see freemarker.template.template_model.TemplateMethodModel#exec(List)
      */
     public Object exec(List arguments) throws TemplateModelException
     {

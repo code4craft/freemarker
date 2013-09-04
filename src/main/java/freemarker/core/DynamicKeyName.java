@@ -57,11 +57,11 @@ import java.util.ArrayList;
 import freemarker.template.SimpleScalar;
 import freemarker.template.SimpleSequence;
 import freemarker.template.TemplateException;
-import freemarker.template.TemplateHashModel;
-import freemarker.template.TemplateModel;
-import freemarker.template.TemplateNumberModel;
-import freemarker.template.TemplateScalarModel;
-import freemarker.template.TemplateSequenceModel;
+import freemarker.template.template_model.TemplateHashModel;
+import freemarker.template.template_model.TemplateModel;
+import freemarker.template.template_model.TemplateNumberModel;
+import freemarker.template.template_model.TemplateScalarModel;
+import freemarker.template.template_model.TemplateSequenceModel;
 
 /**
  * A unary operator that uses the string value of an expression as a hash key.
@@ -104,7 +104,7 @@ final class DynamicKeyName extends Expression {
             return dealWithNumericalKey(targetModel, index, env);
         }
         if (keyModel instanceof TemplateScalarModel) {
-            String key = EvalUtil.modelToString((TemplateScalarModel)keyModel, nameExpression, env);
+            String key = EvalUtil.modelToString((TemplateScalarModel) keyModel, nameExpression, env);
             return dealWithStringKey(targetModel, key, env);
         }
         throw new UnexpectedTypeException(nameExpression, keyModel, "number, range, or string", env);

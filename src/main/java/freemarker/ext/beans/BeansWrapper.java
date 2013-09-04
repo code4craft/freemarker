@@ -95,12 +95,12 @@ import freemarker.template.ObjectWrapper;
 import freemarker.template.TemplateBooleanModel;
 import freemarker.template.TemplateCollectionModel;
 import freemarker.template.TemplateDateModel;
-import freemarker.template.TemplateHashModel;
-import freemarker.template.TemplateModel;
-import freemarker.template.TemplateModelException;
-import freemarker.template.TemplateNumberModel;
-import freemarker.template.TemplateScalarModel;
-import freemarker.template.TemplateSequenceModel;
+import freemarker.template.template_model.TemplateHashModel;
+import freemarker.template.template_model.TemplateModel;
+import freemarker.template.template_model.TemplateModelException;
+import freemarker.template.template_model.TemplateNumberModel;
+import freemarker.template.template_model.TemplateScalarModel;
+import freemarker.template.template_model.TemplateSequenceModel;
 import freemarker.template.utility.ClassUtil;
 import freemarker.template.utility.Collections12;
 import freemarker.template.utility.SecurityUtilities;
@@ -462,7 +462,7 @@ public class BeansWrapper implements ObjectWrapper
      * reference is null. It defaults to null reference, which is dealt 
      * with quite strictly on engine level, however you can substitute an 
      * arbitrary (perhaps more lenient) model, such as 
-     * {@link freemarker.template.TemplateScalarModel#EMPTY_STRING}.
+     * {@link freemarker.template.template_model.TemplateScalarModel#EMPTY_STRING}.
      */
     public void setNullModel(TemplateModel nullModel)
     {

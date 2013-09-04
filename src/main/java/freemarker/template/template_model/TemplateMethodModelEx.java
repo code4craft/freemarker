@@ -21,7 +21,7 @@
  *    Alternately, this acknowledgement may appear in the software itself,
  *    if and wherever such third-party acknowledgements normally appear.
  *
- * 4. Neither the name "FreeMarker", "Visigoth", nor any of the names of the
+ * 4. Neither the name "FreeMarker", "Visigoth", nor any of the names of the 
  *    project contributors may be used to endorse or promote products derived
  *    from this software without prior written permission. For written
  *    permission, please contact visigoths@visigoths.org.
@@ -50,36 +50,39 @@
  * http://www.visigoths.org/
  */
 
-package freemarker.template;
+package freemarker.template.template_model;
+
+import freemarker.core.Environment;
+import freemarker.template.utility.DeepUnwrap;
 
 import java.util.List;
 
 /**
- * A sequence that wraps a {@link List} of {@link TemplateModel}-s. It does not copy the original
- * list. It's mostly useful when implementing {@link TemplateMethodModelEx}-es that collect items from other
- * {@link TemplateModel}-s.
+ * "extended method" template language data type: Objects that act like functions. Their main application is calling
+ * Java methods via {@link freemarker.ext.beans.BeansWrapper}, but you can implement this interface to create
+ * top-level functions too. They are "extended" compared to the deprecated {@link TemplateMethodModel}, which could only
+ * accept string parameters.
+ * 
+ * <p>In templates they are used like {@code myMethod(1, "foo")} or {@code myJavaObject.myJavaMethod(1, "foo")}.
+ *  
+ * @author Attila Szegedi, szegedia at users dot sourceforge dot net
  */
-public class TemplateModelListSequence implements TemplateSequenceModel {
-    
-    private List/*<TemplateModel>*/ list;
-
-    public TemplateModelListSequence(List list) {
-        this.list = list;
-    }
-
-    public TemplateModel get(int index) {
-        return (TemplateModel) list.get(index);
-    }
-
-    public int size() {
-        return list.size();
-    }
+public interface TemplateMethodModelEx extends TemplateMethodModel {
 
     /**
-     * Returns the original {@link List} of {@link TemplateModel}-s, so it's not a fully unwrapped value.
+     * Executes the method call.
+     *  
+     * @param arguments a {@link List} of {@link TemplateModel}-s,
+     *     containing the arguments passed to the method. If the implementation absolutely wants 
+     *     to operate on POJOs, it can use the static utility methods in the {@link DeepUnwrap} 
+     *     class to easily obtain them. However, unwrapping is not always possible (or not perfectly), and isn't always
+     *     efficient, so it's recommended to use the original {@link TemplateModel} value as much as possible.
+     *      
+     * @return the return value of the method, or {@code null}. If the returned value
+     *     does not implement {@link TemplateModel}, it will be automatically 
+     *     wrapped using the {@link Environment#getObjectWrapper() environment's 
+     *     object wrapper}.
      */
-    public Object getWrappedObject() {
-        return list;
-    }
+    public Object exec(List arguments) throws TemplateModelException;
     
 }

@@ -54,8 +54,8 @@ package freemarker.core;
 
 import freemarker.template.SimpleNumber;
 import freemarker.template.TemplateException;
-import freemarker.template.TemplateModel;
-import freemarker.template.TemplateNumberModel;
+import freemarker.template.template_model.TemplateModel;
+import freemarker.template.template_model.TemplateNumberModel;
 
 final class UnaryPlusMinusExpression extends Expression {
     

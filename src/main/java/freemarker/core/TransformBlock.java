@@ -62,8 +62,8 @@ import java.util.Map;
 
 import freemarker.template.EmptyMap;
 import freemarker.template.TemplateException;
-import freemarker.template.TemplateModel;
-import freemarker.template.TemplateTransformModel;
+import freemarker.template.template_model.TemplateModel;
+import freemarker.template.template_model.TemplateTransformModel;
 
 /**
  * A template element that contains a nested block

@@ -1,7 +1,7 @@
 package freemarker.test.utility;
 
 import freemarker.core.Environment;
-import freemarker.template.TemplateModel;
+import freemarker.template.template_model.TemplateModel;
 import freemarker.template.utility.StringUtil;
 
 /**

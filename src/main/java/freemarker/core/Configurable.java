@@ -76,7 +76,7 @@ import freemarker.template.ObjectWrapper;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
 import freemarker.template.TemplateExceptionHandler;
-import freemarker.template.TemplateModel;
+import freemarker.template.template_model.TemplateModel;
 import freemarker.template.Version;
 import freemarker.template.utility.ClassUtil;
 import freemarker.template.utility.NullArgumentException;

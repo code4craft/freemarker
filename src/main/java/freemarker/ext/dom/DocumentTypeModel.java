@@ -55,9 +55,9 @@ package freemarker.ext.dom;
 import org.w3c.dom.DocumentType;
 import org.w3c.dom.ProcessingInstruction;
 
-import freemarker.template.TemplateModel;
-import freemarker.template.TemplateModelException;
-import freemarker.template.TemplateSequenceModel;
+import freemarker.template.template_model.TemplateModel;
+import freemarker.template.template_model.TemplateModelException;
+import freemarker.template.template_model.TemplateSequenceModel;
 
 class DocumentTypeModel extends NodeModel {
     

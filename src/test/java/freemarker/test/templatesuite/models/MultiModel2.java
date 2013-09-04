@@ -56,8 +56,8 @@ import java.util.Iterator;
 import java.util.List;
 
 import freemarker.template.SimpleScalar;
-import freemarker.template.TemplateMethodModel;
-import freemarker.template.TemplateScalarModel;
+import freemarker.template.template_model.TemplateMethodModel;
+import freemarker.template.template_model.TemplateScalarModel;
 
 /**
  * Testcase to see how FreeMarker deals with multiple Template models.

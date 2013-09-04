@@ -52,11 +52,13 @@
 
 package freemarker.template;
 
+import freemarker.template.template_model.TemplateModelException;
+
 import java.io.IOException;
 
 /**
  * An interface that can be implemented by writers returned from
- * {@link TemplateTransformModel#getWriter(java.io.Writer, java.util.Map)}. The
+ * {@link freemarker.template.template_model.TemplateTransformModel#getWriter(java.io.Writer, java.util.Map)}. The
  * methods on this
  * interfaces are callbacks that will be called by the template engine and that
  * give the writer a chance to better control the evaluation of the transform
@@ -118,7 +120,7 @@ public interface TransformControl
     
     /**
      * Called if any exception occurs during the transform between the
-     * {@link TemplateTransformModel#getWriter(java.io.Writer, java.util.Map)} call
+     * {@link freemarker.template.template_model.TemplateTransformModel#getWriter(java.io.Writer, java.util.Map)} call
      * and the {@link java.io.Writer#close()} call.
      * @param t the throwable that represents the exception. It can be any 
      * non-checked throwable, as well as {@link TemplateException} and 

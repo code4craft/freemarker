@@ -21,7 +21,7 @@
  *    Alternately, this acknowledgement may appear in the software itself,
  *    if and wherever such third-party acknowledgements normally appear.
  *
- * 4. Neither the name "FreeMarker", "Visigoth", nor any of the names of the 
+ * 4. Neither the name "FreeMarker", "Visigoth", nor any of the names of the
  *    project contributors may be used to endorse or promote products derived
  *    from this software without prior written permission. For written
  *    permission, please contact visigoths@visigoths.org.
@@ -50,25 +50,36 @@
  * http://www.visigoths.org/
  */
 
-package freemarker.template;
+package freemarker.template.template_model;
+
+import java.util.List;
 
 /**
- * "hash" template language data type: an object that contains other objects accessible through string keys
- * (sub-variable names).
- * 
- * <p>In templates they are used like {@code myHash.myKey} or {@code myHash[myDynamicKey]}. 
+ * A sequence that wraps a {@link List} of {@link TemplateModel}-s. It does not copy the original
+ * list. It's mostly useful when implementing {@link TemplateMethodModelEx}-es that collect items from other
+ * {@link TemplateModel}-s.
  */
-public interface TemplateHashModel extends TemplateModel {
+public class TemplateModelListSequence implements TemplateSequenceModel {
     
-    /**
-     * Gets a <tt>TemplateModel</tt> from the hash.
-     *
-     * @param key the name by which the <tt>TemplateModel</tt>
-     * is identified in the template.
-     * @return the <tt>TemplateModel</tt> referred to by the key,
-     * or null if not found.
-     */
-    TemplateModel get(String key) throws TemplateModelException;
+    private List/*<TemplateModel>*/ list;
 
-    boolean isEmpty() throws TemplateModelException;
+    public TemplateModelListSequence(List list) {
+        this.list = list;
+    }
+
+    public TemplateModel get(int index) {
+        return (TemplateModel) list.get(index);
+    }
+
+    public int size() {
+        return list.size();
+    }
+
+    /**
+     * Returns the original {@link List} of {@link TemplateModel}-s, so it's not a fully unwrapped value.
+     */
+    public Object getWrappedObject() {
+        return list;
+    }
+    
 }

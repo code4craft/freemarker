@@ -50,63 +50,43 @@
  * http://www.visigoths.org/
  */
 
-package freemarker.template;
+/*
+ * 22 October 1999: This class added by Holger Arendt.
+ */
+
+package freemarker.template.template_model;
+
+import freemarker.core.Environment;
+
+import java.util.List;
 
 /**
- * "node" template language data type: an object that is a node in a tree.
- * A tree of nodes can be recursively <em>visited</em> using the &lt;#visit...&gt; and &lt;#recurse...&gt;
- * directives. This API is largely based on the W3C Document Object Model
- * (DOM) API. However, it's meant to be generally useful for describing
- * any tree of objects that you wish to navigate using a recursive visitor
- * design pattern (or simply through being able to get the parent
- * and child nodes).
+ * "method" template language data type: Objects that act like functions. The name comes from that their original
+ * application was calling Java methods via {@link freemarker.ext.beans.BeansWrapper}. 
  * 
- * <p>See the <a href="http://freemarker.org/docs/xgui.html" target="_blank">XML
- * Processing Guide</a> for a concrete application.
- *
- * @since FreeMarker 2.3
- * @author <a href="mailto:jon@revusky.com">Jonathan Revusky</a>
+ * <p>In templates they are used like {@code myMethod("foo", "bar")} or {@code myJavaObject.myJavaMethod("foo", "bar")}. 
+ * 
+ * @deprecated Use {@link TemplateMethodModelEx} instead. This interface is from the old times when the only kind of
+ *    value you could pass in was string.
  */
-public interface TemplateNodeModel extends TemplateModel {
-    
-    /**
-     * @return the parent of this node or null, in which case
-     * this node is the root of the tree.
-     */
-    TemplateNodeModel getParentNode() throws TemplateModelException;
-    
-    /**
-     * @return a sequence containing this node's children.
-     * If the returned value is null or empty, this is essentially 
-     * a leaf node.
-     */
-    TemplateSequenceModel getChildNodes() throws TemplateModelException;
+public interface TemplateMethodModel extends TemplateModel {
 
     /**
-     * @return a String that is used to determine the processing
-     * routine to use. In the XML implementation, if the node 
-     * is an element, it returns the element's tag name.  If it
-     * is an attribute, it returns the attribute's name. It 
-     * returns "@text" for text nodes, "@pi" for processing instructions,
-     * and so on.
-     */    
-    String getNodeName() throws TemplateModelException;
-    
-    /**
-     * @return a String describing the <em>type</em> of node this is.
-     * In the W3C DOM, this should be "element", "text", "attribute", etc.
-     * A TemplateNodeModel implementation that models other kinds of
-     * trees could return whatever it appropriate for that application. It
-     * can be null, if you don't want to use node-types.
+     * Executes the method call. All arguments passed to the method call are 
+     * coerced to strings before being passed, if the FreeMarker rules allow
+     * the coercion. If some of the passed arguments can not be coerced to a
+     * string, an exception will be raised in the engine and the method will 
+     * not be called. If your method would like to act on actual data model 
+     * objects instead of on their string representations, implement the 
+     * {@link TemplateMethodModelEx} instead.
+     * 
+     * @param arguments a <tt>List</tt> of <tt>String</tt> objects
+     *     containing the values of the arguments passed to the method.
+     *  
+     * @return the return value of the method, or {@code null}. If the returned value
+     *     does not implement {@link TemplateModel}, it will be automatically 
+     *     wrapped using the {@link Environment#getObjectWrapper() environment 
+     *     object wrapper}.
      */
-    String getNodeType() throws TemplateModelException;
-    
-    
-    /**
-     * @return the XML namespace URI with which this node is 
-     * associated. If this TemplateNodeModel implementation is 
-     * not XML-related, it will almost certainly be null. Even 
-     * for XML nodes, this will often be null.
-     */
-    String getNodeNamespace() throws TemplateModelException;
+    public Object exec(List arguments) throws TemplateModelException;
 }

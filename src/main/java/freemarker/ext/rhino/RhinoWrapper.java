@@ -10,8 +10,8 @@ import org.mozilla.javascript.Wrapper;
 
 import freemarker.ext.beans.BeansWrapper;
 import freemarker.ext.util.ModelFactory;
-import freemarker.template.TemplateModel;
-import freemarker.template.TemplateModelException;
+import freemarker.template.template_model.TemplateModel;
+import freemarker.template.template_model.TemplateModelException;
 import freemarker.template.utility.UndeclaredThrowableException;
 
 /**

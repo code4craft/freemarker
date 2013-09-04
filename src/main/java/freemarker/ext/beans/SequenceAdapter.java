@@ -2,10 +2,10 @@ package freemarker.ext.beans;
 
 import java.util.AbstractList;
 
-import freemarker.template.TemplateModel;
-import freemarker.template.TemplateModelAdapter;
-import freemarker.template.TemplateModelException;
-import freemarker.template.TemplateSequenceModel;
+import freemarker.template.template_model.TemplateModel;
+import freemarker.template.template_model.TemplateModelAdapter;
+import freemarker.template.template_model.TemplateModelException;
+import freemarker.template.template_model.TemplateSequenceModel;
 import freemarker.template.utility.UndeclaredThrowableException;
 
 /**

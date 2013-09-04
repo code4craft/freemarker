@@ -61,6 +61,9 @@ import java.util.SortedMap;
 import java.util.TreeMap;
 
 import freemarker.ext.beans.BeansWrapper;
+import freemarker.template.template_model.TemplateHashModelEx;
+import freemarker.template.template_model.TemplateModel;
+import freemarker.template.template_model.TemplateModelException;
 
 /**
  * <p>A simple implementation of the <tt>TemplateHashModelEx</tt>
@@ -107,7 +110,7 @@ implements TemplateHashModelEx, Serializable {
     /**
      * Creates an empty simple hash using the specified object wrapper.
      * @param wrapper The object wrapper to use to wrap objects into
-     * {@link TemplateModel} instances. If null, the default wrapper set in 
+     * {@link freemarker.template.template_model.TemplateModel} instances. If null, the default wrapper set in
      * {@link WrappingTemplateModel#setDefaultObjectWrapper(ObjectWrapper)} is
      * used.
      */
@@ -125,7 +128,7 @@ implements TemplateHashModelEx, Serializable {
      * internal use. If the map implements the {@link SortedMap} interface, the
      * internal copy will be a {@link TreeMap}, otherwise it will be a 
      * @param wrapper The object wrapper to use to wrap objects into
-     * {@link TemplateModel} instances. If null, the default wrapper set in 
+     * {@link freemarker.template.template_model.TemplateModel} instances. If null, the default wrapper set in
      * {@link WrappingTemplateModel#setDefaultObjectWrapper(ObjectWrapper)} is
      * used.
      */

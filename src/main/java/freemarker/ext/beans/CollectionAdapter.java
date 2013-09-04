@@ -4,10 +4,10 @@ import java.util.AbstractCollection;
 import java.util.Iterator;
 
 import freemarker.template.TemplateCollectionModel;
-import freemarker.template.TemplateModel;
-import freemarker.template.TemplateModelAdapter;
-import freemarker.template.TemplateModelException;
-import freemarker.template.TemplateModelIterator;
+import freemarker.template.template_model.TemplateModel;
+import freemarker.template.template_model.TemplateModelAdapter;
+import freemarker.template.template_model.TemplateModelException;
+import freemarker.template.template_model.TemplateModelIterator;
 import freemarker.template.utility.UndeclaredThrowableException;
 
 /**

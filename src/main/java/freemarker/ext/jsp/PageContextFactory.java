@@ -3,8 +3,8 @@ package freemarker.ext.jsp;
 import javax.servlet.jsp.PageContext;
 
 import freemarker.core.Environment;
-import freemarker.template.TemplateModel;
-import freemarker.template.TemplateModelException;
+import freemarker.template.template_model.TemplateModel;
+import freemarker.template.template_model.TemplateModelException;
 import freemarker.template.utility.UndeclaredThrowableException;
 
 /**

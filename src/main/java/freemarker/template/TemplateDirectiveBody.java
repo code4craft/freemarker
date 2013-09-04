@@ -6,7 +6,7 @@ import java.io.Writer;
 /**
  * Represents the nested content of a directive ({@link TemplateDirectiveModel}) invocation. An implementation of this 
  * class is passed to {@link TemplateDirectiveModel#execute(freemarker.core.Environment, 
- * java.util.Map, TemplateModel[], TemplateDirectiveBody)}. The implementation of the method is 
+ * java.util.Map, freemarker.template.template_model.TemplateModel[], TemplateDirectiveBody)}. The implementation of the method is
  * free to invoke it for any number of times, with any writer.
  *
  * @since 2.3.11

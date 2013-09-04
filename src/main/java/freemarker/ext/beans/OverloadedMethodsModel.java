@@ -59,15 +59,15 @@ import java.lang.reflect.Modifier;
 import java.util.List;
 
 import freemarker.template.SimpleNumber;
-import freemarker.template.TemplateMethodModelEx;
-import freemarker.template.TemplateModel;
-import freemarker.template.TemplateModelException;
-import freemarker.template.TemplateSequenceModel;
+import freemarker.template.template_model.TemplateMethodModelEx;
+import freemarker.template.template_model.TemplateModel;
+import freemarker.template.template_model.TemplateModelException;
+import freemarker.template.template_model.TemplateSequenceModel;
 import freemarker.template.utility.Collections12;
 import freemarker.template.utility.StringUtil;
 
 /**
- * Wraps a set of same-name overloaded methods behind {@link freemarker.template.TemplateMethodModel} interface,
+ * Wraps a set of same-name overloaded methods behind {@link freemarker.template.template_model.TemplateMethodModel} interface,
  * like if it was a single method, chooses among them behind the scenes on call-time based on the argument values.
  *  
  * @author Attila Szegedi, szegedia at users dot sourceforge dot net

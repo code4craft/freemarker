@@ -52,6 +52,9 @@
 
 package freemarker.template;
 
+import freemarker.template.template_model.TemplateModel;
+import freemarker.template.template_model.TemplateModelException;
+
 /**
  * Convenience base-class for containers that wrap arbitrary Java objects into 
  * {@link TemplateModel} instances.

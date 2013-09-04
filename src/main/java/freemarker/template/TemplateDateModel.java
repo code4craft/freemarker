@@ -52,6 +52,9 @@
 
 package freemarker.template;
 
+import freemarker.template.template_model.TemplateModel;
+import freemarker.template.template_model.TemplateModelException;
+
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Date;

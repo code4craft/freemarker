@@ -19,7 +19,7 @@ import org.python.core.PyStringMap;
 import freemarker.ext.beans.BeansWrapper;
 import freemarker.ext.beans.DateModel;
 import freemarker.ext.util.ModelCache;
-import freemarker.template.TemplateModel;
+import freemarker.template.template_model.TemplateModel;
 
 class JythonModelCache extends ModelCache
 {

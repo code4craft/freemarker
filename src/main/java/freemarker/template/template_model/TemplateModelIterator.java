@@ -50,31 +50,25 @@
  * http://www.visigoths.org/
  */
 
-package freemarker.template;
+package freemarker.template.template_model;
 
 /**
- * "sequence" template language data type; an object that contains other objects accessible through
- * an integer 0-based index.
- * 
- * <p>Used in templates like: {@code mySeq[index]}, {@code <#list mySeq as i>...</#list>}, {@code mySeq?size}, etc. 
+ * Used to iterate over a set of template models <em>once</em>; usually returned from
+ * {@link freemarker.template.TemplateCollectionModel#iterator()}. Note that it's not a {@link TemplateModel}.
  * 
  * @author Attila Szegedi, szegedia at users dot sourceforge dot net
  */
-public interface TemplateSequenceModel extends TemplateModel {
+public interface TemplateModelIterator {
 
     /**
-     * Retrieves the i-th template model in this sequence.
-     * 
-     * @return the item at the specified index, or <code>null</code> if
-     * the index is out of bounds. Note that a <code>null</code> value is
-     * interpreted by FreeMarker as "variable does not exist", and accessing
-     * a missing variables is usually considered as an error in the FreeMarker
-     * Template Language, so the usage of a bad index will not remain hidden.
+     * Returns the next model.
+     * @throws TemplateModelException if the next model can not be retrieved
+     *   (i.e. because the iterator is exhausted).
      */
-    TemplateModel get(int index) throws TemplateModelException;
+    TemplateModel next() throws TemplateModelException;
 
     /**
-     * @return the number of items in the list.
+     * @return whether there are any more items to iterate over.
      */
-    int size() throws TemplateModelException;
+    boolean hasNext() throws TemplateModelException;
 }

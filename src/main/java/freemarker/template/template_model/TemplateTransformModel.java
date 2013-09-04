@@ -50,24 +50,40 @@
  * http://www.visigoths.org/
  */
 
-package freemarker.template;
+package freemarker.template.template_model;
+
+import java.io.IOException;
+import java.io.Writer;
+import java.util.Map;
+
+import freemarker.template.utility.DeepUnwrap;
 
 /**
- * "string" template language data-type; like in Java, an unmodifiable UNICODE character sequence.
- * (The name of this interface should be {@code TemplateStringModel}. The misnomer is inherited from the
- * old times, when this was the only single-value type in FreeMarker.)
+ * "transform" template language data type: user-defined directives 
+ * (much like macros) specialized on filtering output; you should rather use the newer {@link freemarker.template.TemplateDirectiveModel}
+ * instead. This certainly will be deprecated in FreeMarker 2.4.
+ * 
+ * @author Attila Szegedi
  */
-public interface TemplateScalarModel extends TemplateModel {
+public interface TemplateTransformModel extends TemplateModel {
 
-    /**
-     * A constant value to use as the empty string.
-     */
-    public TemplateModel EMPTY_STRING = new SimpleScalar("");
-
-    /**
-     * Returns the string representation of this model. Don't return {@code null}, as that will cause exception.
-     * (In classic-compatible mode the engine will convert {@code null} into empty string, though.)
-     */
-    public String getAsString() throws TemplateModelException;
-
+     /**
+      * Returns a writer that will be used by the engine to feed the
+      * transformation input to the transform. Each call to this method
+      * must return a new instance of the writer so that the transformation
+      * is thread-safe.
+      * @param out the character stream to which to write the transformed output
+      * @param args the arguments (if any) passed to the transformation as a 
+      * map of key/value pairs where the keys are strings and the arguments are
+      * TemplateModel instances. This is never null. If you need to convert the
+      * template models to POJOs, you can use the utility methods in the 
+      * {@link DeepUnwrap} class.
+      * @return a writer to which the engine will feed the transformation 
+      * input, or null if the transform does not support nested content (body).
+      * The returned writer can implement the {@link freemarker.template.TransformControl}
+      * interface if it needs advanced control over the evaluation of the 
+      * transformation body.
+      */
+     Writer getWriter(Writer out, Map args) 
+         throws TemplateModelException, IOException;
 }

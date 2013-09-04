@@ -53,7 +53,7 @@
 package freemarker.core;
 
 import freemarker.template.TemplateException;
-import freemarker.template.TemplateModel;
+import freemarker.template.template_model.TemplateModel;
 
 /**
  * A class that represents a Range between two integers.

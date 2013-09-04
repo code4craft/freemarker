@@ -1,7 +1,7 @@
 package freemarker.core;
 
 import freemarker.template.TemplateException;
-import freemarker.template.TemplateModel;
+import freemarker.template.template_model.TemplateModel;
 
 /**
  * The type of a value differs from what was expected.

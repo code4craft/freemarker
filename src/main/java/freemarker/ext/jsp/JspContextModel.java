@@ -55,9 +55,9 @@ package freemarker.ext.jsp;
 import javax.servlet.jsp.PageContext;
 
 import freemarker.ext.beans.BeansWrapper;
-import freemarker.template.TemplateHashModel;
-import freemarker.template.TemplateModel;
-import freemarker.template.TemplateModelException;
+import freemarker.template.template_model.TemplateHashModel;
+import freemarker.template.template_model.TemplateModel;
+import freemarker.template.template_model.TemplateModelException;
 
 class JspContextModel
 implements

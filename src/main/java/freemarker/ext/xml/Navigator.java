@@ -60,7 +60,7 @@ import java.util.WeakHashMap;
 
 import org.jaxen.NamespaceContext;
 
-import freemarker.template.TemplateModelException;
+import freemarker.template.template_model.TemplateModelException;
 
 /**
  * @author Attila Szegedi

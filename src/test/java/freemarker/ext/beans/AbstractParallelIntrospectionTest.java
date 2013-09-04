@@ -1,10 +1,10 @@
 package freemarker.ext.beans;
 
 import junit.framework.TestCase;
-import freemarker.template.TemplateHashModel;
-import freemarker.template.TemplateMethodModel;
-import freemarker.template.TemplateModelException;
-import freemarker.template.TemplateNumberModel;
+import freemarker.template.template_model.TemplateHashModel;
+import freemarker.template.template_model.TemplateMethodModel;
+import freemarker.template.template_model.TemplateModelException;
+import freemarker.template.template_model.TemplateNumberModel;
 
 public abstract class AbstractParallelIntrospectionTest extends TestCase {
     

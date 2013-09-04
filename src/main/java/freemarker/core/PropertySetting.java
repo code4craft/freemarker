@@ -55,9 +55,9 @@ package freemarker.core;
 import freemarker.template.Template;
 import freemarker.template.TemplateBooleanModel;
 import freemarker.template.TemplateException;
-import freemarker.template.TemplateModel;
-import freemarker.template.TemplateNumberModel;
-import freemarker.template.TemplateScalarModel;
+import freemarker.template.template_model.TemplateModel;
+import freemarker.template.template_model.TemplateNumberModel;
+import freemarker.template.template_model.TemplateScalarModel;
 
 /**
  * An instruction that sets a property of the template rendering

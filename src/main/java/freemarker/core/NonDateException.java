@@ -52,7 +52,7 @@
 
 package freemarker.core;
 
-import freemarker.template.TemplateModel;
+import freemarker.template.template_model.TemplateModel;
 
 /**
  * Indicates that a date, time or date+time was expected.

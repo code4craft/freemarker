@@ -50,25 +50,24 @@
  * http://www.visigoths.org/
  */
 
-package freemarker.template;
+package freemarker.template.template_model;
+
+import freemarker.core.ArithmeticEngine;
 
 /**
- * Used to iterate over a set of template models <em>once</em>; usually returned from
- * {@link TemplateCollectionModel#iterator()}. Note that it's not a {@link TemplateModel}.
- * 
- * @author Attila Szegedi, szegedia at users dot sourceforge dot net
+ * "number" template language data type; an object that stores a number. There's only one numerical
+ * type as far as the template language is concerned, but it can store its value using whatever Java number type.
+ * Making operations between numbers (and so the coercion rules) is up to the {@link ArithmeticEngine}. 
+ *
+ * @author <a href="mailto:jon@revusky.com">Jonathan Revusky</a>
  */
-public interface TemplateModelIterator {
+public interface TemplateNumberModel extends TemplateModel {
 
     /**
-     * Returns the next model.
-     * @throws TemplateModelException if the next model can not be retrieved
-     *   (i.e. because the iterator is exhausted).
+     * Returns the numeric value. The return value must not be null.
+     *
+     * @return the {@link Number} instance associated with this number model.
      */
-    TemplateModel next() throws TemplateModelException;
-
-    /**
-     * @return whether there are any more items to iterate over.
-     */
-    boolean hasNext() throws TemplateModelException;
+    public Number getAsNumber() throws TemplateModelException;
+    
 }

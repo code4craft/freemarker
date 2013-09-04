@@ -54,7 +54,7 @@ package freemarker.test.templatesuite.models;
 
 import java.util.List;
 
-import freemarker.template.TemplateMethodModel;
+import freemarker.template.template_model.TemplateMethodModel;
 import freemarker.template.utility.HtmlEscape;
 import freemarker.template.utility.XmlEscape;
 

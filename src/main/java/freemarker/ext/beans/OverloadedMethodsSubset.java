@@ -58,7 +58,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
-import freemarker.template.TemplateModelException;
+import freemarker.template.template_model.TemplateModelException;
 
 /**
  * @author Attila Szegedi

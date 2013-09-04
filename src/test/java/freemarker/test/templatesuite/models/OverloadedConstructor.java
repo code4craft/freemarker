@@ -1,7 +1,7 @@
 package freemarker.test.templatesuite.models;
 
-import freemarker.template.TemplateModelException;
-import freemarker.template.TemplateScalarModel;
+import freemarker.template.template_model.TemplateModelException;
+import freemarker.template.template_model.TemplateScalarModel;
 
 public class OverloadedConstructor implements TemplateScalarModel {
     

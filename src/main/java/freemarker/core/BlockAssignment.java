@@ -59,8 +59,8 @@ import java.util.Map;
 
 import freemarker.template.SimpleScalar;
 import freemarker.template.TemplateException;
-import freemarker.template.TemplateModel;
-import freemarker.template.TemplateTransformModel;
+import freemarker.template.template_model.TemplateModel;
+import freemarker.template.template_model.TemplateTransformModel;
 
 /**
  * Like [#local x]...[/#local].

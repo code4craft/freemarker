@@ -61,8 +61,8 @@ import javax.servlet.http.HttpSession;
 
 import freemarker.template.ObjectWrapper;
 import freemarker.template.SimpleHash;
-import freemarker.template.TemplateModel;
-import freemarker.template.TemplateModelException;
+import freemarker.template.template_model.TemplateModel;
+import freemarker.template.template_model.TemplateModelException;
 
 /**
  * An extension of SimpleHash that looks up keys in the hash, then in the

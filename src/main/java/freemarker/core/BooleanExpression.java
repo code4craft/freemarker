@@ -54,7 +54,7 @@ package freemarker.core;
 
 import freemarker.template.TemplateBooleanModel;
 import freemarker.template.TemplateException;
-import freemarker.template.TemplateModel;
+import freemarker.template.template_model.TemplateModel;
 
 abstract class BooleanExpression extends Expression {
 

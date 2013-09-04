@@ -53,9 +53,9 @@
 package freemarker.core;
 
 import freemarker.template.SimpleNumber;
-import freemarker.template.TemplateModel;
-import freemarker.template.TemplateModelException;
-import freemarker.template.TemplateSequenceModel;
+import freemarker.template.template_model.TemplateModel;
+import freemarker.template.template_model.TemplateModelException;
+import freemarker.template.template_model.TemplateSequenceModel;
 
 /**
  * A class that represents a Range between two integers.

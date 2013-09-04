@@ -72,7 +72,7 @@ import org.jdom.ProcessingInstruction;
 import org.jdom.Text;
 import org.jdom.output.XMLOutputter;
 
-import freemarker.template.TemplateModelException;
+import freemarker.template.template_model.TemplateModelException;
 
 /**
  * Don't use this class; it's only public to work around Google App Engine Java

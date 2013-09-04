@@ -63,8 +63,8 @@ import javax.swing.tree.TreeNode;
 
 import freemarker.template.SimpleSequence;
 import freemarker.template.TemplateException;
-import freemarker.template.TemplateNodeModel;
-import freemarker.template.TemplateSequenceModel;
+import freemarker.template.template_model.TemplateNodeModel;
+import freemarker.template.template_model.TemplateSequenceModel;
 import freemarker.template.utility.Collections12;
 
 /**

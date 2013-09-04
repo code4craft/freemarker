@@ -55,7 +55,7 @@ package freemarker.ext.beans;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-import freemarker.template.TemplateModel;
+import freemarker.template.template_model.TemplateModel;
 
 /**
  * Don't use this class; it's only public to work around Google App Engine Java

@@ -61,13 +61,13 @@ import java.util.List;
 import java.util.Set;
 
 import freemarker.log.Logger;
-import freemarker.template.TemplateHashModel;
-import freemarker.template.TemplateMethodModel;
-import freemarker.template.TemplateModel;
-import freemarker.template.TemplateModelException;
-import freemarker.template.TemplateNodeModel;
-import freemarker.template.TemplateScalarModel;
-import freemarker.template.TemplateSequenceModel;
+import freemarker.template.template_model.TemplateHashModel;
+import freemarker.template.template_model.TemplateMethodModel;
+import freemarker.template.template_model.TemplateModel;
+import freemarker.template.template_model.TemplateModelException;
+import freemarker.template.template_model.TemplateNodeModel;
+import freemarker.template.template_model.TemplateScalarModel;
+import freemarker.template.template_model.TemplateSequenceModel;
 import freemarker.template.utility.ClassUtil;
 import freemarker.template.utility.Collections12;
 
@@ -185,7 +185,7 @@ implements
     
     /**
      * Returns the number of nodes in this model's nodelist.
-     * @see freemarker.template.TemplateSequenceModel#size()
+     * @see freemarker.template.template_model.TemplateSequenceModel#size()
      */
     public int size() {
         return nodes.size();
@@ -197,7 +197,7 @@ implements
      * one argument - the XPath expression.
      * @return a new NodeListModel with nodes selected by applying the XPath
      * expression to this model's nodelist.
-     * @see freemarker.template.TemplateMethodModel#exec(List)
+     * @see freemarker.template.template_model.TemplateMethodModel#exec(List)
      */
     public Object exec(List arguments) throws TemplateModelException {
         if(arguments.size() != 1) {
@@ -216,7 +216,7 @@ implements
      * in the nodelist are rendered as-is (with no XML escaping applied). All
      * other nodes are rendered in the default XML serialization format ("plain
      * XML"). 
-     * @see freemarker.template.TemplateScalarModel#getAsString()
+     * @see freemarker.template.template_model.TemplateScalarModel#getAsString()
      */
     public String getAsString() throws TemplateModelException {
         StringWriter sw = new StringWriter(size() * 128);
@@ -236,7 +236,7 @@ implements
      * Selects a single node from this model's nodelist by its list index and
      * returns a new NodeListModel containing that single node.
      * @param index the ordinal number of the selected node 
-     * @see freemarker.template.TemplateSequenceModel#get(int)
+     * @see freemarker.template.template_model.TemplateSequenceModel#get(int)
      */
     public TemplateModel get(int index) {
         return deriveModel(Collections12.singletonList(nodes.get(index)));
@@ -418,7 +418,7 @@ implements
      * </table>
      * @return a new NodeListModel containing the nodes that result from applying
      * the operator to this model's nodes.
-     * @see freemarker.template.TemplateHashModel#get(String)
+     * @see freemarker.template.template_model.TemplateHashModel#get(String)
      */
     public TemplateModel get(String key) throws TemplateModelException {
         // Try a built-in navigator operator
@@ -477,7 +477,7 @@ implements
 
     /**
      * Returns true if this NodeListModel contains no nodes. 
-     * @see freemarker.template.TemplateHashModel#isEmpty()
+     * @see freemarker.template.template_model.TemplateHashModel#isEmpty()
      */
     public boolean isEmpty() {
         return nodes.isEmpty();

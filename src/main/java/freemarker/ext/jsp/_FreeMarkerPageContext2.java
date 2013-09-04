@@ -1,7 +1,7 @@
 package freemarker.ext.jsp;
 
 import freemarker.log.Logger;
-import freemarker.template.TemplateModelException;
+import freemarker.template.template_model.TemplateModelException;
 
 import javax.servlet.jsp.el.ExpressionEvaluator;
 import javax.servlet.jsp.el.VariableResolver;

@@ -52,7 +52,7 @@
 
 package freemarker.ext.util;
 
-import freemarker.template.TemplateModel;
+import freemarker.template.template_model.TemplateModel;
 
 /**
  * A generic interface for template models that wrap some underlying

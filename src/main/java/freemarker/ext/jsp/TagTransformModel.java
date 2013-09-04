@@ -69,8 +69,8 @@ import javax.servlet.jsp.tagext.Tag;
 import javax.servlet.jsp.tagext.TryCatchFinally;
 
 import freemarker.log.Logger;
-import freemarker.template.TemplateModelException;
-import freemarker.template.TemplateTransformModel;
+import freemarker.template.template_model.TemplateModelException;
+import freemarker.template.template_model.TemplateTransformModel;
 import freemarker.template.TransformControl;
 
 /**

@@ -1,6 +1,6 @@
 package freemarker.core;
 
-import freemarker.template.TemplateModel;
+import freemarker.template.template_model.TemplateModel;
 import freemarker.template.utility.ClassUtil;
 
 /** Don't use this; used internally by FreeMarker, might changes without notice. */

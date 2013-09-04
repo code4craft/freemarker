@@ -13,7 +13,7 @@ import javax.servlet.jsp.el.ExpressionEvaluator;
 import javax.servlet.jsp.el.VariableResolver;
 
 import freemarker.log.Logger;
-import freemarker.template.TemplateModelException;
+import freemarker.template.template_model.TemplateModelException;
 
 /**
  * Don't use this class; it's only public to work around Google App Engine Java

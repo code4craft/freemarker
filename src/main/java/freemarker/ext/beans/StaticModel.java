@@ -61,15 +61,15 @@ import java.util.Map;
 
 import freemarker.log.Logger;
 import freemarker.template.TemplateCollectionModel;
-import freemarker.template.TemplateHashModelEx;
-import freemarker.template.TemplateModel;
-import freemarker.template.TemplateModelException;
+import freemarker.template.template_model.TemplateHashModelEx;
+import freemarker.template.template_model.TemplateModel;
+import freemarker.template.template_model.TemplateModelException;
 
 /**
  * Wraps the static fields and methods of a class in a
- * {@link freemarker.template.TemplateHashModel}.
+ * {@link freemarker.template.template_model.TemplateHashModel}.
  * Fields are wrapped using {@link BeansWrapper#wrap(Object)}, and
- * methods are wrapped into an appropriate {@link freemarker.template.TemplateMethodModelEx} instance.
+ * methods are wrapped into an appropriate {@link freemarker.template.template_model.TemplateMethodModelEx} instance.
  * Unfortunately, there is currently no support for bean property-style
  * calls of static methods, similar to that in {@link BeanModel}.
  * @author Attila Szegedi

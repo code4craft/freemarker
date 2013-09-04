@@ -57,9 +57,9 @@ import java.util.Map;
 import java.util.Set;
 
 import freemarker.core._ConcurrentMapFactory;
-import freemarker.template.TemplateHashModel;
-import freemarker.template.TemplateModel;
-import freemarker.template.TemplateModelException;
+import freemarker.template.template_model.TemplateHashModel;
+import freemarker.template.template_model.TemplateModel;
+import freemarker.template.template_model.TemplateModelException;
 import freemarker.template.utility.ClassUtil;
 
 /**

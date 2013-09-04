@@ -52,9 +52,13 @@
 
 package freemarker.template;
 
+import freemarker.template.template_model.TemplateModel;
+import freemarker.template.template_model.TemplateModelException;
+import freemarker.template.template_model.TemplateModelIterator;
+
 /**
  * "collection" template language data type: a collection of values that can be enumerated, repeatedly (not just once).
- * This is very similar to {@link TemplateSequenceModel}, but it doesn't support indexed (random) access and
+ * This is very similar to {@link freemarker.template.template_model.TemplateSequenceModel}, but it doesn't support indexed (random) access and
  * its size can't be queried.
  *  
  * <p>They are mostly used in template languages like {@code <#list myCollection as i>...</#list>}.  

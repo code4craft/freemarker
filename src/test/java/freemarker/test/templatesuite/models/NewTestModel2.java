@@ -52,7 +52,7 @@
 
 package freemarker.test.templatesuite.models;
 
-import freemarker.template.TemplateScalarModel;
+import freemarker.template.template_model.TemplateScalarModel;
 
 /**
  * Testcase to see how FreeMarker's ?new built-in deals with constructors.

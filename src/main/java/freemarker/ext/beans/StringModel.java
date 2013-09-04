@@ -54,8 +54,8 @@ package freemarker.ext.beans;
 
 import freemarker.ext.util.ModelFactory;
 import freemarker.template.ObjectWrapper;
-import freemarker.template.TemplateModel;
-import freemarker.template.TemplateScalarModel;
+import freemarker.template.template_model.TemplateModel;
+import freemarker.template.template_model.TemplateScalarModel;
 
 /**
  * Subclass of {@link BeanModel} that exposes the return value of the {@link

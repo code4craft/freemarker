@@ -58,9 +58,9 @@ import freemarker.ext.beans.BeansWrapper;
 import freemarker.template.ObjectWrapper;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
-import freemarker.template.TemplateMethodModelEx;
-import freemarker.template.TemplateModel;
-import freemarker.template.TemplateModelException;
+import freemarker.template.template_model.TemplateMethodModelEx;
+import freemarker.template.template_model.TemplateModel;
+import freemarker.template.template_model.TemplateModelException;
 
 /**
  * A built-in that allows us to instantiate an instance of a java class.
@@ -95,7 +95,7 @@ class NewBI extends BuiltIn
             cl = env.getNewBuiltinClassResolver().resolve(classname, env, template);
             if (!TemplateModel.class.isAssignableFrom(cl)) {
                 throw new _MiscTemplateException(NewBI.this, env, new Object[] {
-                        "Class ", cl.getName(), " does not implement freemarker.template.TemplateModel" });
+                        "Class ", cl.getName(), " does not implement freemarker.template.template_model.TemplateModel" });
             }
             if (BEAN_MODEL_CLASS.isAssignableFrom(cl)) {
                 throw new _MiscTemplateException(NewBI.this, env, new Object[] {

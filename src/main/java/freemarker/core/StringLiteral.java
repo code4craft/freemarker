@@ -58,8 +58,8 @@ import java.io.StringReader;
 import freemarker.template.SimpleScalar;
 import freemarker.template.TemplateException;
 import freemarker.template.TemplateExceptionHandler;
-import freemarker.template.TemplateModel;
-import freemarker.template.TemplateScalarModel;
+import freemarker.template.template_model.TemplateModel;
+import freemarker.template.template_model.TemplateScalarModel;
 import freemarker.template.utility.StringUtil;
 
 final class StringLiteral extends Expression implements TemplateScalarModel {

@@ -18,7 +18,7 @@ import java.util.regex.PatternSyntaxException;
 
 import freemarker.template.Configuration;
 import freemarker.template.Template;
-import freemarker.template.TemplateModel;
+import freemarker.template.template_model.TemplateModel;
 import freemarker.template.Version;
 import freemarker.template.utility.ClassUtil;
 import freemarker.template.utility.StringUtil;

@@ -59,6 +59,8 @@ import java.util.Iterator;
 import java.util.Map;
 
 import freemarker.ext.dom.NodeModel;
+import freemarker.template.template_model.TemplateModel;
+import freemarker.template.template_model.TemplateModelException;
 
 /**
  * <p>The default implementation of the ObjectWrapper

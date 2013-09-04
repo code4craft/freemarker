@@ -52,6 +52,10 @@
 
 package freemarker.template;
 
+import freemarker.template.template_model.TemplateModel;
+import freemarker.template.template_model.TemplateModelException;
+import freemarker.template.template_model.TemplateModelIterator;
+
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.Iterator;

@@ -50,39 +50,37 @@
  * http://www.visigoths.org/
  */
 
-package freemarker.template;
+package freemarker.template.template_model;
 
-import java.util.List;
-
-import freemarker.core.Environment;
-import freemarker.template.utility.DeepUnwrap;
+import freemarker.template.TemplateCollectionModel;
 
 /**
- * "extended method" template language data type: Objects that act like functions. Their main application is calling
- * Java methods via {@link freemarker.ext.beans.BeansWrapper}, but you can implement this interface to create
- * top-level functions too. They are "extended" compared to the deprecated {@link TemplateMethodModel}, which could only
- * accept string parameters.
+ * "extended hash" template language data type; extends {@link TemplateHashModel} by allowing
+ * iterating through its keys and values.
  * 
- * <p>In templates they are used like {@code myMethod(1, "foo")} or {@code myJavaObject.myJavaMethod(1, "foo")}.
- *  
- * @author Attila Szegedi, szegedia at users dot sourceforge dot net
+ * <p>In templates they are used like hashes, but these will also work (among others):
+ * {@code myExtHash?size}, {@code myExtHash?keys}, {@code myExtHash?values}.
+ * 
+ * @author <a href="mailto:jon@revusky.com">Jonathan Revusky</a>
+ * @see freemarker.template.SimpleHash
  */
-public interface TemplateMethodModelEx extends TemplateMethodModel {
+public interface TemplateHashModelEx extends TemplateHashModel {
 
     /**
-     * Executes the method call.
-     *  
-     * @param arguments a {@link List} of {@link TemplateModel}-s,
-     *     containing the arguments passed to the method. If the implementation absolutely wants 
-     *     to operate on POJOs, it can use the static utility methods in the {@link DeepUnwrap} 
-     *     class to easily obtain them. However, unwrapping is not always possible (or not perfectly), and isn't always
-     *     efficient, so it's recommended to use the original {@link TemplateModel} value as much as possible.
-     *      
-     * @return the return value of the method, or {@code null}. If the returned value
-     *     does not implement {@link TemplateModel}, it will be automatically 
-     *     wrapped using the {@link Environment#getObjectWrapper() environment's 
-     *     object wrapper}.
+     * @return the number of key/value mappings in the hash.
      */
-    public Object exec(List arguments) throws TemplateModelException;
-    
+    int size() throws TemplateModelException;
+
+    /**
+     * @return a collection containing the keys in the hash. Every element of 
+     *      the returned collection must implement the {@link TemplateScalarModel}
+     *      (as the keys of hashes are always strings).
+     */
+    TemplateCollectionModel keys() throws TemplateModelException;
+
+    /**
+     * @return a collection containing the values in the hash. The elements of the
+     * returned collection can be any kind of {@link TemplateModel}-s.
+     */
+    TemplateCollectionModel values() throws TemplateModelException;
 }

@@ -50,10 +50,11 @@
  * http://www.visigoths.org/
  */
 
-package freemarker.template;
+package freemarker.template.template_model;
 
 import freemarker.core.Environment;
 import freemarker.core._ErrorDescriptionBuilder;
+import freemarker.template.TemplateException;
 
 /**
  * {@link TemplateModel} methods throw this exception if the requested data can't be retrieved.  

@@ -59,7 +59,7 @@ import java.io.StringWriter;
 import java.io.Writer;
 import java.util.Map;
 
-import freemarker.template.TemplateTransformModel;
+import freemarker.template.template_model.TemplateTransformModel;
 
 /**
  * A TemplateTransformModel that includes properties. These properties can be

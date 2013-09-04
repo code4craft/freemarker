@@ -58,7 +58,8 @@ import java.io.InputStreamReader;
 import java.io.Reader;
 import java.util.List;
 
-import freemarker.template.TemplateModelException;
+import freemarker.template.template_model.TemplateMethodModel;
+import freemarker.template.template_model.TemplateModelException;
 
 /**
  * <p>Gives FreeMarker the the ability to execute external commands. Will fork
@@ -91,7 +92,7 @@ import freemarker.template.TemplateModelException;
  * ...
  * </pre>
  */
-public class Execute implements freemarker.template.TemplateMethodModel {
+public class Execute implements TemplateMethodModel {
 
     private final static int OUTPUT_BUFFER_SIZE = 1024;
 
